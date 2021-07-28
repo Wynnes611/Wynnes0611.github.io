@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        var str = "生日是:19901-10-10 生日是:1998-11-12 生日是2003-05-03 生日是3003-06-07 生日是2008-08-08";
+        var reg = /[12]\d{3}-\d{2}-\d{2}/g;
+        var content = reg.exec(str);
+        console.log(content);// true
+    </script>
+</body>
+</html>

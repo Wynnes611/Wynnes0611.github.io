@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 80px;
+            width: 200px;
+            border: 1px solid rebeccapurple;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">123</div>
+    <div id="box2">456</div>
+    <button id="btn1">按钮1</button>
+    <button id="btn2">按钮2</button>
+    <script>
+        var btn1 = document.getElementById("btn1");
+        btn1.onclick = function(){
+            box1.innerText="<h2>标题2标签内容1</h2>";
+        }
+        var btn2 = document.getElementById("btn2");
+        btn2.onclick = function(){
+            box2.innerHTML="<h2>标题2标签内容1</h2>";
+        }
+    </script>
+</body>
+
+</html>

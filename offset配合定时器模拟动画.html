@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            margin: 20px;
+            width: 100px;
+            height: 100px;
+            background-color: violet;
+            position: absolute;
+        }
+
+        button {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>move</button>
+    <button>stop</button>
+    <div></div>
+    <script>
+        var oDiv = document.querySelector("div");
+        var btn = document.querySelectorAll("button");
+        var speed = 1;
+        var timer = null;
+        btn[0].onclick = function () {
+            if (timer === null) {
+                timer = setInterval(function () {
+                    oDiv.style.left = oDiv.offsetLeft + speed + "px";
+                }, 150);
+            }
+        }
+        btn[1].onclick = function () {
+            clearInterval(timer);
+            timer = null;
+        }
+        
+        btn[0].addEventListener("click", function () {
+            if (timer === null) {
+                timer = setInterval(function () {
+                    oDiv.style.left = oDiv.offsetLeft + speed + "px";
+                    
+                }, 150);
+            }
+        })
+        btn[1].addEventListener("click", function () {
+            clearInterval(timer);
+            timer = null;
+        })
+    </script>
+</body>
+
+</html>

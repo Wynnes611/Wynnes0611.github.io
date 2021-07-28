@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            border: 1px solid #f00;
+        }
+        p.p2{
+            height: 80px;
+            width: 80px;
+            text-align: center;
+            margin: auto 0;
+            background-color: plum;
+            border-radius: 50%;
+        }
+        .triangle{
+            height: 0;
+            width: 0;
+            border-top: 25px solid rebeccapurple;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+        }
+        div.triangle3{
+            height: 0;
+            width: 0;
+            border-left: 20px solid yellow;
+            border-top: 20px solid yellow;
+            border-bottom: 20px solid transparent;
+            /* border-right: 20px solid transparent; */
+        }
+        .triangle4{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        a:link{
+            color: blue;
+        }
+        a:visited{
+            color: pink;
+        }
+        a:hover{
+            color: chocolate;
+        }
+        a:active{
+            color: red;
+        }
+
+
+        ul li:nth-child(2n-1){
+            background-color: rebeccapurple;
+        }
+        ul li:nth-child(2n){
+            background-color: cadetblue;
+        }
+        ul li:hover{
+            background-color: lightblue;
+            height: 50px;
+        }
+
+        #p1:target{
+            color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <p id="p1">January</p>
+    <p class="p2">February</p>
+    <p class="p3">March</p>
+    <div class="triangle triangle1"></div>
+    <div class="triangle triangle2"></div>
+    <div class="triangle triangle3"></div>
+    <div class="triangle triangle4"></div>
+    <a href="#p1">超链接</a>
+
+
+    <ul>
+        <li>content</li>
+        <li>content</li>
+        <li>content</li>
+        <li>content</li>
+        <li>content</li>
+        <li>content</li>
+        <li>content</li>
+        <li>content</li>
+        <li>content</li>
+        <li>content</li>
+    </ul>
+
+</body>
+</html>

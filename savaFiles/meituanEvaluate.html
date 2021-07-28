@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美团评价</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 0 auto;
+            display: flex;
+            flex-flow: column nowrap;
+        }
+        
+        .container .evaluate {
+            height: auto;
+            display: flex;
+            flex: 1 1 500px;
+            flex-flow: row nowrap;
+            padding: 20px;
+            border-top: 1px solid #ccc;
+        }
+        .content{
+            width: 300px;
+            flex: 1 1 300px;
+        }
+        /* .container .evaluate1 {
+            background-color: khaki;
+        }
+
+        .container .evaluate2 {
+            background-color: slateblue;
+        } */
+
+        .evaluate .adatar {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            background: url(image/kitten-medium.png) right/80px;
+            border-radius: 50%;
+            flex: none;
+        }
+
+        header .top {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        header .top .userid {
+            color: #333;
+        }
+
+        header .top .date {
+            color: #333;
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        header .arrive_time {
+            font-size: 12px;
+            color: #ccc;
+            margin-top: 5px;
+        }
+
+        main {
+            margin-top: 20px;
+        }
+
+        .pic_container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+
+        .pic {
+            width: 75px;
+            margin: 5px;
+            height: 75px;
+            background-color: pink;
+            background: url(image/accessories1.jpg) center/75px;
+        }
+
+        .reply {
+            padding: 6px;
+            background-color: rgba(189, 189, 189, .2);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="evaluate1 evaluate">
+            <div class="adatar"></div>
+            <div class="content">
+                <header>
+                    <div class="top">
+                        <div class="userid">小小忘00544</div>
+                        <div class="date">2020-11-02</div>
+                    </div>
+                    <p class="arrive_time">38分送达</p>
+                </header>
+                <main>
+                    <p class="txt">包装很好，送的餐具和酱料也很齐全。肉也很多！ 还是烤鸭专用酱好吃！ 非常满意！</p>
+                    <div class="pic_container">
+                        <div class="pic1 pic"></div>
+                        <div class="pic2 pic"></div>
+                        <div class="pic3 pic"></div>
+                    </div>
+                    <div class="reply">商家回复(1天后):感谢亲对我们出品的认可，小店会在您的支持下，做的更好，期待您下次光临，祝您生活愉快，万事如意！</div>
+                </main>
+            </div>
+        </div>
+        <div class="evaluate2 evaluate">
+            <div class="adatar"></div>
+            <div class="content">
+                <header>
+                    <div class="top">
+                        <div class="userid">dl548411174</div>
+                        <div class="date">2020-11-14</div>
+                    </div>
+                    <p class="arrive_time">2小时9分钟送达</p>
+                </header>
+                <main>
+                    <p class="txt">很棒~好吃😋包装好，唯一的缺点是面皮不好分开#北京烤鸭（单人餐）# #秘制烤鸭酱 （单点不配送）#</p>
+                    <div class="pic_container">
+                        <div class="pic1 pic"></div>
+                    </div>
+                    <p>货物完好</p>
+                    <div class="reply">商家回复(4天后):感谢亲对我们出品的认可，小店会在您的支持下，做的更好，期待您下次光临，祝您生活愉快，万事如意！</div>
+                </main>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

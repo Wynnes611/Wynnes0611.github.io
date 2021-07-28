@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        button{
+            width: 100px;
+            height: 40px;
+            border: none;
+            background-color: slategray;
+            color: #fff;
+            font-weight: bold;
+            transform-origin: top;
+        }
+        button:hover{
+            animation: btn 1s ease  ;
+        }
+        @keyframes btn {
+            0%{
+                transform: skewX(0deg);
+            }
+            20%{
+                transform: skewX(-30deg);
+            }
+            40%{
+                transform: skewX(-26deg);
+            }
+            50%{
+                transform: skewX(24deg);
+            }
+            60%{
+                transform: skewX(-14deg);
+            }
+            90%{
+                transform: skewX(4deg);
+            }
+            100%{
+                transform: skewX(0deg);
+            }
+        }
+
+        .skew{
+        width: 100px;
+        height: 50px;
+        overflow: hidden;
+        background-color: rebeccapurple;
+      }
+      .fill{
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        transition: all .3s ease;
+        transform: skew(0deg, 0deg);
+        text-align: center;
+        line-height: 50px;
+        color: darkslategray;
+      }
+      .skew:hover .fill {
+        -webkit-transform: skew(45deg, 45deg);
+        transform: skew(45deg, 45deg);
+      }
+      p{
+          position: absolute;
+          z-index: 88;
+          left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+      <button>BUTTON</button>
+      <div class="skew">
+        <p>BUTTON2</p>
+        <div class="fill"></div>
+      </div>
+  </body>
+</html>

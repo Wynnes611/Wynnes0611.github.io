@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 500px;
+            height: 500px;
+            background: orange;
+            margin: 50px auto;
+        }
+        .father .son{
+            width: 200px;
+            height: 200px;
+            background:red;
+            transition: all 2s;
+        }
+        .father:hover .son{
+            background:violet;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son">son元素</div>
+    </div>
+
+    <script>
+        var son = document.querySelector(".son");
+        son.ontransitionend = function(){
+            console.log("过渡完成了");
+        }
+    </script>
+</body>
+</html>

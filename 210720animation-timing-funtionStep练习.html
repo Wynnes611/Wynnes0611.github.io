@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="girl"></div>
+    <style>
+      .girl {
+        width: 180px;
+        height: 300px;
+        background-image: url("images/sprites.png");
+        animation: girlMove 1s infinite;
+        animation-timing-function: steps(7);
+      }
+      @keyframes girlMove {
+        from {
+          background-position-x: 0;
+        }
+        to {
+          background-position-x: -1260px;
+        }
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        header {
+            background: #000;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            color: #fff;
+        }
+
+        main {
+            /* main的padding-bottom值要等于或大于footer的height值 */
+            padding-bottom: 100px;
+            background: #ccc;
+            text-align: center;
+        }
+
+        footer {
+            position: absolute;
+            color: #fff;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background-color: #000;
+        }
+        div{
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <header>头部</header>
+    <main>中间内容
+        <div>
+            123
+        </div>
+    </main>
+    <footer>底部信息</footer>
+</body>
+
+</html>

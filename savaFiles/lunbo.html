@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        // 获取ul元素
+        var boxul = document.getElementById("boxul")
+        var lis = boxul.querySelectorAll("li");
+        console.log(lis.length);
+
+        // 获取ol
+        var boxol = document.getElementById("boxol")
+        var ol_lis = boxol.querySelectorAll("li")
+        var prev = document.getElementById("prev")
+        var next = document.getElementById("next")
+        给ol的li添加点击事件
+        for (var i = 0; i < ol_lis.length; i++) {
+            ol_lis[i].setAttribute("index", i)
+            ol_lis[i].onclick = function () {
+                for (var i = 0; i < ol_lis.length; i++) {
+                    ol_lis[i].className = ""
+                    lis[i].style.opacity = 0
+                }
+                this.className = "current"
+                var index = parseInt(this.getAttribute("index"))
+                lis[index].style.opacity = 1
+            }
+        }
+
+        // console.log(ol.lis);
+        var index = 0;
+        var old_li = lis[0]
+        var new_li
+        next.onclick = function () {
+            index++
+            if (index == lis.length) {
+                index = 0
+            }
+            old_li.style.opacity = 0
+            new_li = lis[index]
+            new_li.style.opacity = 1
+            old_li = new_li
+            // ol下li的颜色变化
+            for (var i = 0; i < lis.length; i++) {
+                ol_lis[i].className = ""
+            }
+            ol_lis[index].className = "current"
+
+        }
+
+        // 给上一个按钮注册点击事件，让所有的li的透明度变为0，让当前的透明度变为0，让当前的透明度变为1
+        prev.onclick = function(){
+            if(index == 0){
+                index = lis.length
+            }
+            index--
+            old_li.style.opacity = 0
+            new_li = lis[index]
+            new_li.style.opacity = 1
+            for(var i = 0;i<lis.length;i++){
+                ol_lis[i].className=""
+            }
+            ol_lis[index].className="current"
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        *::selection {
+            background: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box {
+            width: 266px;
+            height: 159px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .box ul li {
+            width: 800px;
+            height: 500px;
+            position: absolute;
+            opacity: 0;
+            transition: all .8s;
+        }
+
+        .box ul li:first-child {
+            opacity: 1;
+        }
+
+        /* 左右箭头 */
+        .prev,
+        .next {
+            width: 80px;
+            height: 40px;
+            position: absolute;
+            background-color: rgba(0, 0, 0, .7);
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            top: 50%;
+            margin-top: -20px;
+            cursor: pointer;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .prev:active,
+        .next:active {
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, .6);
+        }
+
+        /* 小方块的位置 */
+        .box ol {
+            position: absolute;
+            right: 50px;
+            bottom: 20px;
+        }
+
+        .box ol li {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ccc;
+            float: left;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+
+        .current {
+            background-color: yellow;
+        }
+
+        img {
+            width: 266px;
+            height: 159px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul id="boxul">
+            <li><img src="image/videoPic1.jpg" alt=""></li>
+            <li><img src="image/videoPic2.jpg" alt=""></li>
+            <li><img src="image/videoPic3.jpg" alt=""></li>
+            <li><img src="image/videoPic4.jpg" alt=""></li>
+        </ul>
+        <ol id="boxol">
+            <li class="current">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ol>
+        <div class="prev" id="prev">prev</div>
+        <div class="next" id="next">next</div>
+    </div>
+
+
+    
+</body>
+
+</html>

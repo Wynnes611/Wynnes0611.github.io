@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: #9ab7cd;
+        }
+    </style>
+<script src="js/0607_1.js"></script>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        var a,b,temp;
+        a=10;
+        b=20;
+        temp=a;
+        a=b;
+        b=temp;
+        console.log("a="+a+",b="+b);
+
+        var c,d,e;
+        c=10;
+        d=20;
+        e=(c>d)?"nochange":c=d;
+        console.log("c>d吗："+e);
+
+        var x ,y;
+        x=10;
+        y=20;
+        x=x+y;
+        y=x-y;
+        x=x-y;
+        console.log("x="+x+",y="+y);
+    </script>
+</body>
+
+</html>

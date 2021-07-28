@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 5000px;
+            width: 3000px;
+        }
+        .box{
+            position: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <button>滚动到0</button>
+        <button>滚动到500</button>
+        <button>滚动到1000</button>
+    </div>
+    <script>
+        function getScroll() {
+            return {
+                left: window.pageXoffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+                top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+            };
+        }
+        var btn = document.querySelectorAll("button");
+        var timer = null;
+        btn[0].onclick = function () {
+            if (timer === null) {
+                timer = window.setInterval(function () {
+                    var currentPageTop = getScroll().top;
+                    if (currentPageTop <= 0) {
+                        window.clearInterval(timer);
+                        timer = null;
+                        return 0;
+                    }
+                    var pos = currentPageTop - 10;
+                    window.scroll(getScroll().left, pos);
+                }, 10);
+            }
+        }
+
+        btn[1].onclick = function(){
+            if(timer === null){
+                timer = window.setInterval(function(){
+                    // window.scroll(0,500);
+                    currentPageTop = getScroll().top;
+                    if(currentPageTop<=500){
+                        pos =  currentPageTop+10;
+                        if(currentPageTop == 500){
+                            window.clearInterval( timer );
+                            timer = null;
+                            return 0;
+                        }
+                        window.scroll(getScroll().left,pos);
+                    }else if(currentPageTop>=500){
+                         pos = currentPageTop -10;
+                        window.scroll(getScroll().left,pos);
+                        if(currentPageTop == 500){
+                           window.clearInterval( timer );
+                           timer = null;
+                       }
+                    }
+                },15);
+            }
+        }
+
+        btn[2].onclick = function(){
+            if(timer === null){
+                timer = window.setInterval(function(){
+                    currentPageTop = getScroll().top;
+
+                    if(currentPageTop >=1000){
+                        window.clearInterval(timer);
+                        timer = null;
+                        return 0;
+                    }
+                    pos = currentPageTop+10;
+                    window.scroll(getScroll().left,pos);
+                },10);
+            }
+        }
+    </script>
+</body>
+
+</html>

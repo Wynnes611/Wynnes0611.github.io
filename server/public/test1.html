@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>get传递传统表单参数</button>
+    <button>post传递传统表单参数</button>
+    <button>post传递json格式字符串参数</button>
+
+    <script>
+      var btns = document.querySelectorAll("button");
+      btns[0].onclick = function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open(
+          "get",
+          "http://localhost:3000/get01?name=zhangsan&age=20&sex=男"
+        );
+        xhr.send();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log(JSON.parse(xhr.responseText));
+          }
+        };
+      };
+      btns[1].onclick = function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open("post", "http://localhost:3000/post01");
+        var params = "name=lisi&age=24&sex=女";
+        xhr.setRequestHeader(
+          "Content-type",
+          "application/x-www-form-urlencoded"
+        );
+        xhr.send(params);
+        xhr.onreadystatechange = function (){
+          if (xhr.readyState == 4 && xhr.status == 200) {
+              console.log(JSON.parse(xhr.responseText));
+          }
+        }
+      }
+
+      btns[2].onclick = function(){
+        var xhr = new XMLHttpRequest();
+        xhr.open("post","http://localhost:3000/post02");
+        var json = {
+          "name":"王五",
+          "age":25,
+          "sex":"男"
+        }
+
+        xhr.setRequestHeader("Content-type","application/json");
+        xhr.send(JSON.stringify(json));
+        xhr.onreadystatechange = function(){
+          if(xhr.readyState == 4&& xhr.status == 200){
+            console.log(JSON.parse(xhr.responseText));
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .container {
+            width: 820px;
+            height: 390px;
+            background-color: #eee;
+            margin: 0 auto;
+            padding: 10px;
+            position: relative;
+        }
+
+        .lis ul {
+            background-color: #ccc;
+            height: 50px;
+            width: 820px;
+            position: absolute;
+            bottom: 10px;
+        }
+
+        .lis ul li {
+            float: left;
+            background-color: #ddd;
+            line-height: 50px;
+            width: calc(820px/5);
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .lis ul .current {
+            border-bottom: 3px solid #cea861;
+            background-color: #fff;
+            color: #cea861;
+        }
+
+        .lis ul li:hover {
+            border-bottom: 3px solid #cea861;
+            background-color: #fff;
+            color: #cea861;
+        }
+
+        .pic {
+            height: 340px;
+            overflow: hidden;
+        }
+
+        .pic ul {
+            width: 500%;
+        }
+
+        .pic ul li {
+            float: left;
+        }
+
+        .pic ul li img {
+            height: 340px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="pic">
+            <ul>
+                <li><img src="images/1.jpg" alt=""></li>
+                <li><img src="images/2.jpg" alt=""></li>
+                <li><img src="images/3.jpg" alt=""></li>
+                <li><img src="images/4.jpg" alt=""></li>
+                <li><img src="images/5.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div class="lis">
+            <ul>
+                <li class="current">FPX冠军皮肤</li>
+                <li>魔女 婕拉 至臻</li>
+                <li>2020LPL春季赛季后赛</li>
+                <li>挑战主播赢现金</li>
+                <li>每周限时优惠</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var timer = null;
+        var num = 0;
+        var liIndex = 0;
+        $(".lis ul li").mouseover(function () {
+            var liIndex = $(this).index();
+            $(".lis ul li").eq(liIndex).addClass("current").siblings("li").removeClass("current");
+            $(".pic ul").css("marginLeft", -(liIndex * 100) + "%");
+            window.clearInterval(timer);
+        })
+        $(".lis ul li").mouseout(function () {
+            timer = null;
+            liIndex = $(this).index();
+            autoPlay(liIndex);
+        })
+
+
+        function autoPlay(liIndex) {
+            if (timer === null) {
+                timer = setInterval(function () {
+                    $(".lis ul li").eq(liIndex).addClass("current").siblings("li").removeClass("current");
+                    if (liIndex < 5) {
+                        console.log(liIndex);
+                        $(".pic ul").animate({"marginLeft":-(liIndex * 100) + "%"},300);
+                        liIndex++;
+                    } else {
+                        liIndex = 0;
+                    }
+                }, 2000);
+            }
+        }
+        autoPlay();
+    </script>
+</body>
+
+</html>

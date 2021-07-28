@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .row>div {
+            width: 98px;
+            height: 98px;
+            border: 1px solid #ccc;
+            float: left;
+        }
+
+        .box .game {
+            position: absolute;
+            top: -100px;
+        }
+
+        .box {
+            width: 400px;
+            height: 400px;
+            border: 1px solid blue;
+            position: relative;
+            overflow: hidden;
+            margin: 20px;
+        }
+
+        .black {
+            background-color: #000;
+        }
+        input{
+            margin: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text">
+    <button>刷新</button>
+    <div class="box">
+        <div class="game">
+            <div class="row">
+                <div class="black"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div class="black"></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div></div>
+                <div class="black"></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="black"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function $(cssSelector) {
+            var obj = document.querySelectorAll(cssSelector);
+            if (obj.length == 1) {
+                return obj[0];
+            }
+            return obj;
+        }
+
+        function randomNum(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+
+        var game = $(".game");
+        var row = $(".game .row");
+        var speed = 1;
+        var timer = null;
+        var isOver = false;
+        timer = window.setInterval(function () {
+            game.style.top = game.offsetTop + speed + "px";
+            // speed++;
+            if (game.offsetTop >= 0) {
+                var newRow = document.createElement("div");
+                newRow.classList.add("row");
+                var randomBlack = randomNum(1, 4);
+                for (var i = 1; i <= 4; i++) {
+                    var newDiv = document.createElement("div");
+                    if (randomBlack == i) {
+                        newDiv.classList.add("black");
+                    }
+                    newRow.appendChild(newDiv);
+                }
+                game.insertBefore(newRow, game.firstElementChild);
+                game.style.top = -100 + "px";
+                if (game.children.length > 5) {
+                    game.lastElementChild.remove();
+                }
+
+                if (game.lastElementChild.getAttribute("data-num") === null) {
+                    alert("游戏结束");
+                    window.clearInterval(timer);
+                    isOver = true;
+                }
+            }
+        }, 20);
+
+        var calculate = 0;
+        var inputValue = $("input");
+        game.onclick = function (e) {
+            e = e || window.event;
+            if (isOver) {
+                alert("游戏已经结束，刷新重新开始");
+                window.clearInterval(timer);
+            } else {
+                if (e.target.classList.contains("black")) {
+                    e.target.classList.remove("black");
+                    e.target.parentNode.setAttribute("data-num", true);
+                    calculate++;
+                    inputValue.value = calculate; 
+                    if(calculate%5 == 0){
+                        speed++;
+                    }
+                } else {
+                    alert("游戏结束");
+                    window.clearInterval(timer);
+                    isOver = true;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

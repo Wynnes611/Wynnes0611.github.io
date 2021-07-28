@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var randomValue = function (max, min) {
+            return Math.random()*(max - min) + min;
+        }
+        var timer = null;
+        timer = window.setInterval(function () {
+            var dog = document.createElement("img");
+            dog.src = "image/dog.png";
+            dog.style.left = randomValue(window.innerWidth,0) + "px";
+            dog.style.top = randomValue(window.innerHeight,0) + "px";
+            dog.style.width = randomValue(20, 228) + "px";
+            document.body.appendChild(dog);
+        }, 100);
+    </script>
+</body>
+
+</html>

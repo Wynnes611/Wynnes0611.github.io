@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="myDiv">div的内容</div>
+
+    <script>
+         var myDiv = document.getElementById("myDiv");
+         myDiv.onclick = function(){
+             console.log(this);
+             console.log(myDiv);
+             console.log(window);
+             console.log(this == myDiv);
+             console.log(this == window);
+             console.log("div被点击了111111");
+             console.log("");
+         }
+
+         function fn1(){
+             console.log(this);
+             console.log(myDiv);
+             console.log(window);
+             console.log(this == myDiv);
+             console.log(this == window);
+             console.log("div被点击了2222222")
+             console.log("");
+         }
+         myDiv.onclick = fn1;
+
+         function fn2(){
+             console.log(this);
+             console.log(myDiv);
+             console.log(window);
+             console.log(this == myDiv);
+             console.log(this == window);
+             console.log("div被点击了3333333");
+             console.log("");
+         }
+         myDiv.onclick = fn2;
+
+    </script>
+</body>
+</html>

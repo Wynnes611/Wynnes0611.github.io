@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <style>
+        button {
+            padding: 5px 10px;
+            border: none;
+        }
+        div{
+            width: 300px;
+            height: 200px;
+            padding: 10px;
+        }
+        .borR{
+            border-radius: 10px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button class="borR">按钮1</button>
+        <button>按钮2</button>
+        <button>按钮3</button>
+        <button>按钮4</button>
+        <button>按钮5</button>
+    </div>
+
+    <script>
+        $("button").show().eq(2).css("backgroundColor", "#aabbdd").text("点击").addClass("borR");
+        $("button").parent().css("backgroundColor", "lightgreen");
+        var isture = $("button").hasClass("borR");
+        console.log(isture);
+    </script>
+</body>
+
+</html>

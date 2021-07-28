@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        .refresh {
+            float: right;
+        }
+
+        .refresh i {
+            display: inline-block;
+            padding-right: 5px;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+        .title {
+            width: 400px;
+            margin: 0 auto;
+            font-size: 15px;
+
+        }
+
+        ul {
+            list-style: none;
+            counter-reset: num;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hot {
+            float: left;
+        }
+
+        p {
+            margin: 7px;
+        }
+
+        ul>li>p:first-child {
+            float: left;
+        }
+
+        ul>li>p:last-child {
+            float: right;
+            color: #888;
+        }
+
+        ul>li>p:first-child::before {
+            content: counter(num);
+            counter-increment: num;
+            margin-right: 10px;
+            float: left;
+        }
+
+        ul>li:first-child>p:first-child::before {
+            color: #f00;
+        }
+
+        ul>li:nth-child(2)>p:first-child::before {
+            color: orangered;
+        }
+
+        ul>li:nth-child(3)>p:first-child::before {
+            color: orange;
+        }
+        ul>li:nth-child(-n+9) p::before{
+            margin-right: 20px;
+        }
+        ul>li:nth-child(n+10) p::before{
+            margin-right: 10px;
+        }
+
+
+        ul>li:first-child>p:first-child::after{
+            color: #fff;
+            font-size: 2px;
+            content: "爆";
+            margin-left: 10px;
+            border-radius: 3px;
+            text-align: center;
+            padding: 2px;
+            background-color: #d72574;
+        }
+        ul>li:nth-child(2)>p:first-child::after{
+            content: "沸";
+            font-size: 2px;
+            margin-left: 10px;
+            border-radius: 3px;
+            padding: 2px;
+            background-color: orange;
+            color: #fff;
+        }
+        ul>li:nth-child(3)>p:first-child::after{
+            content: "热";
+            font-size: 2px;
+            margin-left: 10px;
+            border-radius: 3px;
+            padding: 2px;
+            background-color: #fbb135;
+            color: #fff;
+        }
+        ul>li:not(:nth-child(6)) a{
+            text-decoration: none;
+            color: #2f4ab8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">
+
+        <div class="clearfix">
+            <p class="hot">百度热搜·热点榜</p>
+            <p class="refresh"> <a href="#"> <i class="fa fa-refresh" aria-hidden="true"></i>换一换</p></a>
+        </div>
+        <ul>
+            <li class="clearfix">
+                <p> <a href="#"> 袁隆平逝世 享年91岁</a></p>
+                <p>497万</p>
+            </li>
+            <li class="clearfix">
+                <p> <a href="#"> 青海果洛州玛多县发生7.4级地震</a></p>
+                <p>497万</p>
+            </li>
+            <li class="clearfix">
+                <p> <a href="#"> 直播：一路走好！送别袁隆平</a></p>
+                <p>497万</p>
+            </li>
+            <li class="clearfix">
+                <p> <a href="#"> 两位国士相继去世 相隔仅五分钟</a></p>
+                <p>497万</p>
+            </li>
+            <li class="clearfix">
+                <p> <a href="#"> 云南漾濞地震以致3死27伤</a></p>
+                <p>497万</p>
+            </li>
+            <li class="clearfix">
+                <p> <a href="#"> 祝融号成功驶上火星表面</a></p>
+                <p>497万</p>
+            </li>
+            <li class="clearfix">
+                <p> <a href="#"> 大连以轿车冲撞人群致4死3伤</a></p>
+                <p>497万</p>
+            </li>
+            <li class="clearfix">
+                <p> <a href="#"> 百秒回顾“杂交水稻之父”生平</a></p>
+                <p>497万</p>
+            </li>
+            <li class="clearfix">
+                <p> <a href="#"> 云南青海地震都与印度板块活跃有关</a></p>
+                <p>497万</p>
+            </li>
+            <li class="clearfix">
+                <p> <a href="#"> 多地事业单位招聘考试今日举行</a></p>
+                <p>497万</p>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

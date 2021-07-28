@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内容过滤选择器</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>电话号码过滤</h1>
+    <input type="text" name="search">
+    <div>
+        <button>搜索制定号码的人员</button>
+        <button>查找未录入号码的人员</button>
+    </div>
+    <ul>
+        <li>高洛峰:<span></span></li>
+        <li>王宝龙:<span>11111111111</span></li>
+        <li>刘万涛:<span>22222222222</span></li>
+        <li>胡宏运:<span></span></li>
+        <li>刘滔:<span>3333333333</span></li>
+        <li>李明霞:<span></span></li>
+        <li>陈家文:<span></span></li>
+    </ul>
+
+    <script>
+        $("button:contains(搜索)").click(function(){
+            var val =$(":text").val();
+            $("li").css("display","none");
+            $("li:contains("+val+")").css("display","block");
+        });
+
+        $("button:contains(查找)").click(function(){
+            $("li").css("display","none");
+            $("span:empty").parent().css("display","block");
+        })
+    </script>
+</body>
+</html>

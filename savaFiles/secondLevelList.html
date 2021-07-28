@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        ul li {
+            width: 150px;
+            height: 40px;
+            line-height: 40px;
+            position: relative;
+            border-radius: 5px;
+            background: rgba(250, 100, 100, .6);
+        }
+        ul li:hover ul li{
+            display: block;
+        }
+
+        ul li a {
+            display: block;
+            color: #fff;
+            border-bottom: 1px solid #fff;
+        }
+
+        ul:first-child>li {
+            background-color: darkslategrey;
+            border: 1px solid slategray;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        ul>li>ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        ul>li>ul>li {
+            position: relative;
+            left: 150px;
+            display: none;
+        }
+        ul li:target a{
+            color: palevioletred;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li id="one"><a href="#one">游戏资料</a>
+            <ul>
+                <li><a href="#">游戏下载</a></li>
+                <li><a href="#">新手指引</a></li>
+                <li><a href="#">资料库</a></li>
+                <li><a href="#">云顶之奕</a></li>
+            </ul>
+        </li>
+        <li><a href="#">商城/合作</a>
+            <ul>
+                <li><a href="#">点券充值</a></li>
+                <li><a href="#">道聚城</a></li>
+                <li><a href="#">周边商城 </a></li>
+                <li><a href="#">LOL桌游</a></li>
+            </ul>
+        </li>
+        <li><a href="#">社区互动</a>
+            <ul>
+                <li><a href="#">视频中心</a></li>
+                <li><a href="#">官方微信</a></li>
+                <li><a href="#">官方微博</a></li>
+                <li><a href="#">玩家创作馆</a></li>
+            </ul>
+        </li>
+        <li><a href="#">赛事官网</a>
+            <ul>
+                <li><a href="#">LPL职业联赛</a></li>
+                <li><a href="#">全球总决赛</a></li>
+                <li><a href="#">城市英雄争霸赛</a></li>
+                <li><a href="#">全明星赛</a></li>
+            </ul>
+        </li>
+        <li><a href="#">自助系统</a>
+            <ul>
+                <li><a href="#">联系客服</a></li>
+                <li><a href="#">转区系统</a></li>
+                <li><a href="#">封号查询</a></li>
+                <li><a href="#">账号注销</a></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            vertical-align: bottom;
+        }
+
+        .banner {
+            width: 1125px;
+            height: 352px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .banner .banner_imgs {
+            width: 1125px;
+            height: 352px;
+            overflow: hidden;
+        }
+
+        .banner .banner_imgs ul {
+            height: 352px;
+            width: 700%;
+            margin-left: -100%;
+            transition: margin-left 0.5s;
+        }
+
+        .banner .banner_imgs ul li {
+            width: 1125px;
+            height: 352px;
+            float: left;
+        }
+
+        .banner .arrow_left,
+        .banner .arrow_right {
+            width: 30px;
+            height: 50px;
+            color: white;
+            background: orange;
+            text-align: center;
+            line-height: 50px;
+            font-size: 30px;
+            position: absolute;
+            top: 50%;
+            margin-top: -25px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .arrow_left {
+            left: 0;
+        }
+
+        .arrow_right {
+            right: 0;
+        }
+
+        .banner .dot {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            margin-left: -45px;
+        }
+
+        .banner .dot ol li {
+            float: left;
+            width: 10px;
+            height: 10px;
+            background: black;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .banner .dot ol li:last-child {
+            margin-right: 0;
+        }
+
+        .banner .dot ol li.active {
+            background: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <div class="banner_imgs">
+            <ul>
+                <li><a href="#"><img src="images/05.jpg" alt=""></a></li>
+                <li><a href="#"><img src="images/01.jpg" alt=""></a></li>
+                <li><a href="#"><img src="images/02.jpg" alt=""></a></li>
+                <li><a href="#"><img src="images/03.jpg" alt=""></a></li>
+                <li><a href="#"><img src="images/04.jpg" alt=""></a></li>
+                <li><a href="#"><img src="images/05.jpg" alt=""></a></li>
+                <li><a href="#"><img src="images/01.jpg" alt=""></a></li>
+            </ul>
+        </div>
+        <span class="arrow_left">&lt;</span>
+        <span class="arrow_right">&gt;</span>
+        <div class="dot">
+            <ol>
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        function $(cssSelector) {
+            var obj = document.querySelectorAll(cssSelector);
+            if (obj.length == 1) {
+                return obj[0];
+            }
+            return obj;
+        }
+        var arrowRight = $(".arrow_right");
+        var bannerImgsUl = $(".banner_imgs ul");
+        var dotList = $(".dot ol li");
+        var num = 1;
+        var circleIndex = 0;
+        var timer = null;
+        var flag = true;
+        arrowRight.onclick = function () {
+            if (flag) {
+                flag = false;
+                num++;
+                bannerImgsUl.style.transition = "margin-left 0.5s";
+                bannerImgsUl.style.marginLeft = -num * 100 + "%";
+                
+                circleIndex++;
+                if (circleIndex == 5) {
+                    circleIndex = 0;
+                }
+                for (var i = 0; i < dotList.length; i++) {
+                    dotList[i].classList.remove("active");
+                }
+                dotList[circleIndex].classList.add("active");
+            }
+        }
+        
+        var arrowLeft = $(".arrow_left");
+        arrowLeft.onclick = function() {
+            if(flag) {
+                flag = false;
+                num--;
+                bannerImgsUl.style.transition = "margin-left 0.5s";
+                bannerImgsUl.style.marginLeft = -num * 100 + "%";
+                circleIndex--;
+                if (circleIndex == -1) {
+                    circleIndex = 4;
+                }
+                for (var i = 0; i < dotList.length; i++) {
+                    dotList[i].classList.remove("active");
+                }
+                dotList[circleIndex].classList.add("active");
+                
+            }
+        }
+        
+        bannerImgsUl.ontransitionend = function () {
+            flag = true;
+            if (num == 6) {
+                num = 1;
+                bannerImgsUl.style.transition = "margin-left 0s";
+                bannerImgsUl.style.marginLeft = -num * 100 + "%";
+            }
+            if (num == 0) {
+                num = 5;
+                bannerImgsUl.style.transition = "margin-left 0s";
+                bannerImgsUl.style.marginLeft = -num * 100 + "%";
+            }
+        }
+
+
+        // 点击跳转图片位置
+        for (var i = 0; i < dotList.length; i++) {
+            dotList[i].setAttribute("data-num", i + 1);
+            dotList[i].onclick = function () {
+                for (var j = 0; j < dotList.length; j++) {
+                    dotList[j].classList.remove("active");
+                }
+                this.classList.add("active");
+                var currentNum = this.getAttribute("data-num");
+                bannerImgsUl.style.transition = "margin-left 0.5s";
+                bannerImgsUl.style.marginLeft = -currentNum * 100 + "%";
+
+                num = currentNum;
+                circleIndex = currentNum - 1;
+            }
+        }
+
+        function autoPlay() {
+            if (timer === null) {
+                timer = window.setInterval(function () {
+                    arrowRight.click();
+                }, 2000);
+            }
+        }
+
+        function stopPlay() {
+            window.clearInterval(timer);
+            timer = null;
+        }
+        autoPlay();
+
+        var banner = $(".banner");
+        banner.onmouseover = function () {
+            stopPlay();
+        }
+        banner.onmouseout = function () {
+            autoPlay();
+        }
+    </script>
+</body>
+
+</html>

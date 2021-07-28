@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        body{
+            width: 700px;
+        }
+        html{
+            height: 100%;
+        }
+        body{
+            min-height: 100%;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            background-color: red;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        .container{
+            height: 550px;
+            width: 980px;
+            padding-bottom: 100px;
+            background-color: yellow;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .container .left{
+            margin-top: 25px;
+            height: 500px;
+            width: 475px;
+            background-color: violet;
+            float: left;
+        }
+        .container .right{
+            margin-top: 25px;
+            height: 500px;
+            float: right;
+            width: 475px;
+            background-color: cornflowerblue;
+        }
+        footer{
+            width: 100%;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            position: absolute;
+            bottom: 0px;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <header>头部</header>
+    <div class="container">
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+    <footer>底部</footer>
+</body>
+</html>

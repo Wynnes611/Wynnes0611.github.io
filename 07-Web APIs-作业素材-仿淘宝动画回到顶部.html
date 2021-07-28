@@ -1,0 +1,137 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 定义一个版心类 */
+        .w {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+
+        .header {
+            background: red;
+            height: 80px;
+            line-height: 80px;
+        }
+
+        .nav {
+            background: orange;
+            height: 150px;
+        }
+
+        .banner {
+            background: skyblue;
+            height: 500px;
+        }
+
+        .main {
+            background: green;
+            height: 800px;
+        }
+
+        .footer {
+            background: gray;
+            height: 200px;
+            line-height: 200px;
+        }
+
+        div {
+            margin-bottom: 50px !important;
+        }
+
+        .box {
+            position: relative;
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .sidebar {
+            position: absolute;
+            right: 223px;
+            top: 300px;
+            right: -36px;
+            background: pink;
+            width: 16px;
+            padding: 10px;
+            height: 83px;
+            transition: top .05s;
+        }
+
+        .sidebar a {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="w">header</div>
+    </div>
+    <div class="box">
+        <div class="nav w">nav</div>
+        <div class="banner w">banner</div>
+        <div class="main w">main</div>
+        <p class="sidebar"><a href="#">返回顶部</a></p>
+    </div>
+    <div class="footer">
+        <div class="w">footer</div>
+    </div>
+
+    <!-- 侧边栏 -->
+
+    <script>
+        var blueBox = $(".banner");
+        var pinkBox = $(".sidebar");
+        var pinkBoxA = $(".sidebar a");
+        var greenBox = $(".main");
+        var timer = null;
+        window.onscroll = function () {
+            var ScrollY = document.body.scrollTop;
+            if (ScrollY > (blueBox.offsetParent.offsetTop) + blueBox.offsetTop) {
+                pinkBox.style.top = ScrollY + 20 + 'px';
+            }else{
+                pinkBox.style.top = "300px";
+            }
+            if (ScrollY > (greenBox.offsetParent.offsetTop) + greenBox.offsetTop) {
+                pinkBoxA.style.display = "block";
+            } else {
+                pinkBoxA.style.display = "none";
+            }
+
+            var locateY = window.pageYOffset;
+            pinkBoxA.onclick = function () {
+                if (timer === null) {
+                    timer = window.setInterval(function () {
+                            locateY = locateY - 13;
+                            window.scroll(0, locateY);
+                            if (locateY <= 0) {
+                                window.clearInterval(timer);
+                                timer = null;
+                            }
+                        }, 1);
+                    }
+                }
+        }
+
+        function $(cssSelector) {
+            var obj = document.querySelectorAll(cssSelector);
+            if (obj.length == 1) {
+                return obj[0];
+            }
+            return obj;
+        }
+
+    </script>
+</body>
+
+</html>

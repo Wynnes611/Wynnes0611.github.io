@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>发送get请求，不带参数</button>
+    <button>发送post请求，不带参数</button>
+    <script>
+      function ajax(options) {
+        var xhr = new XMLHttpRequest();
+        var params = "";
+        for (var attr in options.data) {
+          params += "&" + attr + "=" + options.data[attr];
+        }
+        params = params.substr(1);
+
+        if (option.type == "get") {
+          xhr.open(options.type, options.url + "?" + params);
+          xhr.send();
+        } else if (options.type == "post") {
+          xhr.open(options.type, options.url);
+          xhr.send(params);
+        }
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            options.success(xhr.responseText);
+          }
+        };
+      }
+
+      var btns = document.querySelectorAll("button");
+      btns[0].onclick = function () {
+        ajax({
+          type: "get",
+          url: "http://localhost:3000/getAjax01",
+          success: function (res) {
+            console.log(111);
+            console.log("res :>> ", res);
+            console.log("");
+          },
+        });
+      };
+      btns[1].onclick = function () {
+        ajax({
+          type: "post",
+          url: "http://localhost:3000",
+        });
+      };
+    </script>
+  </body>
+</html>

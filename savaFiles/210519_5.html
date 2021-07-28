@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            list-style: none;
+            color: #fff;
+        }
+
+        .content {
+            height: 50px;
+            line-height: 50px;
+            background-color: #add8e6;
+        }
+
+        ul {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        ul li {
+            text-transform: uppercase;
+            float: left;
+            margin-right: 20px;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <ul class="clearfix">
+            <li><a href="210519_5.html">kitten-small</a></li>
+            <li><a href="210519_5_2.html">kitten-medium</a></li>
+            <li><a href="210519_5_3.html">kitten-large</a></li>
+        </ul>
+        <div>
+            <img src="image/kitten-small.png" alt="">
+        </div>
+    </div>
+</body>
+
+</html>

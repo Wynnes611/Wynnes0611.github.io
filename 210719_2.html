@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      img {
+        height: 150px;
+        background-color: pink;
+      }
+      .box {
+        height: 300px;
+        width: 100%;
+        background-color: slategray;
+      }
+      .box ul {
+        width: 1200px;
+        height: inherit;
+        margin: 0px auto;
+      }
+      .box ul:hover li {
+        margin-top: 35px;
+      }
+      ul > li {
+        float: left;
+        margin-top: -150px;
+        margin-right: 3px;
+        vertical-align: bottom;
+        /* transition: margin-top 1s ease; */
+      }
+      ul > li:first-child {
+        transition: margin-top -1s ease;
+      }
+      ul > li:nth-child(2) {
+        transition: margin-top 0.1s ease;
+      }
+      ul > li:nth-child(3) {
+        transition: margin-top .3s ease;
+      }
+      ul > li:nth-child(4) {
+        transition: margin-top .5s ease;
+      }
+      ul > li:nth-child(5) {
+        transition: margin-top .8s ease;
+      }
+      ul > li:nth-child(6) {
+        transition: margin-top 1s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <ul>
+        <li><img src="image/kitten-small.png" alt="" /></li>
+        <li><img src="image/kitten-small.png" alt="" /></li>
+        <li><img src="image/kitten-small.png" alt="" /></li>
+        <li><img src="image/kitten-small.png" alt="" /></li>
+        <li><img src="image/kitten-small.png" alt="" /></li>
+        <li><img src="image/kitten-small.png" alt="" /></li>
+      </ul>
+    </div>
+  </body>
+</html>

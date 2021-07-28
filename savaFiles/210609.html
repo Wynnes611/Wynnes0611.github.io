@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: #9Ab7cd;
+        }
+
+        td {
+            border: 3px solid #fdd6a9;
+            padding: 10px;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+    <script>
+        // var num = 0;
+        // if (num % 2 == 0 && num != 0) {
+        //     document.write("num是偶数<br/>");
+        // } else if (num != 0) {
+        //     document.write("num是奇数<br/>")
+        // } else {
+        //     document.write("num为0<br/>");
+        // }
+
+        // var x, y, temp;
+        // x = 3;
+        // y = 8;
+        // if (x > y) {
+        //     document.write("最大值：" + x);
+        // } else if (x == y) {
+        //     document.write("两个值相等");
+        // } else {
+        //     temp = x;
+        //     x = y;
+        //     y = temp;
+        //     document.write("最大值：" + x);
+        // }
+        // document.write("<br/>");
+
+        // var score = Number(prompt("请输入真实成绩："));
+        // if (!score) {
+        //     document.write("输入数字");
+        // } else if (score <= 100 && score >= 0) {
+        //     document.write("优秀");
+        //     if (score >= 80 && score < 90) {
+        //         document.write("良好");
+        //     } else if (score >= 70 && score < 80) {
+        //         document.write("一般");
+        //     } else if (score >= 60 && score < 70) {
+        //         document.write("及格");
+        //     } else if (score < 60) {
+        //         document.write("重修");
+        //     }
+        // }
+        // document.write("<br/>");
+        // var weekday = prompt("请输入星期数", "星期一");
+        // switch (weekday) {
+        //     case "星期一":
+        //     case "星期二":
+        //     case "星期三":
+        //     case "星期四":
+        //     case "星期五":
+        //         document.write("好好学习，天天敲代码");
+        //         break;
+        //     case "星期六":
+        //     case "星期天":
+        //         document.write("好好复习");
+        //         break;
+        //     default:
+        //         document.write("好好说话");
+        // }
+        // document.write("<br/>");
+        // var weekday2 = Number(prompt("请输入星期数"));
+        // if(weekday2>0||weekday<6){
+        //     alert("好好学习，天天敲代码");
+        // }else{
+        //     alert("好好休息");
+        // }
+
+
+
+        // var i = 0;
+        // while(i<10){
+        //     document.write("hello world"+i+"<br>");
+        //     i++;
+        // }
+        // var i;
+        // for(i=0;i<100;i++){
+        //     document.write(i+1+"<br/>");
+        // }
+        // var i=0 ;
+        // while(i<100){
+        //     document.write(i+1+"<br/>");
+        // }
+        // var i=0;
+        // while(i<100){
+        //     if(i%7==0){
+        //         document.write(i+"<br/>");
+        //     }
+        //     i++;
+        // }
+        // var i=0;
+        // while(i<100){
+        //     if(i%2 == 1){
+        //         document.write(i+"<br/>");
+        //     }
+        //     i++;
+        // }
+        // var i=0;
+        // while(i<100){
+        //     if(i%2==0){
+        //         document.write(i+"<br/>");
+        //     }
+        //     i++;
+        // }
+
+
+
+
+
+
+        // 99乘法表
+        document.write("<table>");
+        for (var i = 1; i < 10; i++) {
+            document.write("<tr>");
+            for (var j = 1; j <= i; j++) {
+                document.write("<td>");
+                document.write(i + "&times;" + j + "=" + i * j + " ");
+                document.write("</td>");
+            }
+            for (var z = 9; z >= i + 1; z--) {
+                document.write("<td>");
+                document.write("</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+        // // 9行1列
+        // document.write("<table>");
+        // for (var k = 1; k < 10; k++) {
+        //     document.write("<tr>")
+        //     document.write("<td>")
+        //     document.write(k);
+        //     document.write("</td>")
+        //     document.write("</tr>")
+        // }
+        // document.write("</table>");
+
+        // // 一行9列
+        // document.write("<table>");
+        // document.write("<tr>")
+        // for (var k = 1; k < 10; k++) {
+        //     document.write("<td>")
+        //     document.write(k);
+        //     document.write("</td>")
+        // }
+        // document.write("</tr>")
+        // document.write("</table>");
+
+        // // 9行9列
+        // document.write("<table>");
+        // for (var a = 1; a < 10; a++) {
+        //     document.write("<tr>")
+        //     for (var b = 1; b < 10; b++) {
+        //         document.write("<td>")
+        //         document.write(a + "&times;" + b + "=" + a * b);
+        //         document.write("</td>")
+        //     }
+        //     document.write("</tr>")
+        // }
+        // document.write("</table>");
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

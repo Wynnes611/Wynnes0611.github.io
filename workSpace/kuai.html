@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            position: absolute;
+        }
+
+        td {
+            width: 90px;
+            height: 90px;
+            background-color: white;
+            border: 1px solid #999;
+        }
+
+        .content_box {
+            height: 485px;
+            width: 369px;
+            margin: 20px auto;
+            border: 2px solid #000;
+            background-color: #f3f3f3;
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content_box">
+        <table>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        function $(cssSelector) {
+            var obj = document.querySelectorAll(cssSelector);
+            if (obj.length == 1) {
+                return obj[0];
+            }
+            return obj;
+        }
+
+
+
+        var table = $("table");
+        var td = $("table tr td");
+        var i = 0;
+        var j = -1;
+        window.setInterval(function () {
+            i -= 1;
+            table.style.top = i + "px";
+            if (i / 90 == j) {
+                j--;
+                var newTr = document.createElement("tr");
+                var newTd1 = document.createElement("td");
+                var newTd2 = document.createElement("td");
+                var newTd3 = document.createElement("td");
+                var newTd4 = document.createElement("td");
+                newTr.appendChild(newTd1);
+                newTr.appendChild(newTd2);
+                newTr.appendChild(newTd3);
+                newTr.appendChild(newTd4);
+                table.appendChild(newTr);
+                console.log(newTr);
+            }
+            
+        }, 20);
+        var tr = $("table tr");
+        for (var k = tr.length-1; k >= 0; k--) {
+            var randomBlock = Math.floor(Math.random() * 4);
+            var blackBlock = tr[k].children[randomBlock];
+            blackBlock.style.backgroundColor = "#000";
+        }
+        // for (var i = 3; i >= 0; i--) {
+        // var randomBlock = Math.floor(Math.random() * 3);
+        // var blackBlock = tr[i].children[randomBlock];
+        // for (var j = 3; j >= 0; j--) {
+        //     tr[i].children[j].setAttribute("data-num", 0);
+        // }
+        // blackBlock.setAttribute("data-num", 1);
+        // blackBlock.style.backgroundColor = "#000";
+        // if (i >= 1) {
+        //     if (tr[i - 1].children[randomBlock].getAttribute("data-num") == 1) {
+        //         console.log(z);
+        //         console.log(i);
+        //     }
+        // }
+        // }
+    </script>
+</body>
+
+</html>

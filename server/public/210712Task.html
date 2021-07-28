@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .btnContainer {
+            height: 70px;
+            background-color: #ddd;
+            margin: 30px auto;
+            line-height: 70px;
+            text-align: center;
+            width: 850px;
+        }
+
+        .btnContainer button {
+            width: 63px;
+            height: 33px;
+            border-radius: 3px;
+            outline: none;
+            border: 1px solid #aaa;
+        }
+
+        table {
+            margin: 0 auto;
+            width: 1200px;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #ddd;
+        }
+
+        table tr td {
+            border: 1px solid #aaa;
+            min-width: 200px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        table tr th {
+            border: 1px solid #aaa;
+            height: 50px;
+            background-color: #666;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="btnContainer">
+        <button>..</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>10</button>
+        <button>..</button>
+    </div>
+
+    <table rules="all" align="center">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>标题</th>
+                <th>内容</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+ 
+    <script>
+        var tbody = document.querySelector("tbody");
+        var xhr = new XMLHttpRequest();
+        var btns = document.querySelectorAll("button");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function () {
+                var htmlStr = ``;
+                var page = Number(this.innerHTML);
+                xhr.open(`get`, `https://v2.alapi.cn/api/joke?page=${page}&token=OfxQN3EmVTxjO24v&num=10`);
+                xhr.send();
+                xhr.onload = function () {
+                    var res = JSON.parse(xhr.responseText);
+                    for (var i = 0; i < res.data.length; i++) {
+                        var item = res.data[i];
+                        htmlStr += `
+                        <tr>
+                            <td>${i+1}</td>    
+                            <td>${item.title}</td>    
+                            <td>${item.content}</td>    
+                            </tr>
+                            `
+                    }
+                    tbody.innerHTML = htmlStr;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

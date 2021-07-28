@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var date = new Date();
+        date.day = date.getDay();
+        date.year = date.getFullYear();
+        date.month = PrefixInteger(date.getMonth() + 1, 2);
+        date.todayDate = PrefixInteger(date.getDate(), 2);
+        date.hours = PrefixInteger(date.getHours(), 2);
+        date.minutes = PrefixInteger(date.getMinutes(), 2);
+        date.seconds = PrefixInteger(date.getSeconds(), 2);
+        var arr = "天一二三四五六".split("");
+        var arr2 = "年月日时分秒 ".split("");
+        var str = "星期";
+        for (var i = 0; i < arr.length; i++) {
+            if (arr.indexOf(arr[date.day]) == date.day) {
+                str += arr[date.day];
+                break;
+            }
+        }
+
+
+        var i = 0;
+        for (var temp in date) {
+            if (temp == "day") {
+                continue;
+            } else {
+                str += date[temp] + arr2[i++];
+            }
+        }
+        console.log(str);
+
+        function PrefixInteger(num, length) {
+            return (Array(length).join('0') + num).slice(-length);
+            return (Array(length).join('0') + num).slice(-length)
+        }
+    </script>
+</body>
+
+</html>

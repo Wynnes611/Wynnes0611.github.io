@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+            list-style: none;
+        }
+        .container{
+            width: 700px;
+            height: 700px;
+            background-image: repeating-radial-gradient(circle at 50% 50%,#333,#000 1%);
+            border-radius: 50%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+        }
+        .content{
+            width: 250px;
+            height: 360px;
+            background: #feee36 url(image/haimian.jpg) no-repeat;
+            background-position: 40px -23px;
+            border-radius: 20px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .content ul{
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            background-color: #008800; 
+        }
+        .content ul li{
+            padding: 3px 0;
+            text-align: center;
+        }
+        .content ul li:nth-child(odd){
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <ul>
+                <li>《年少有为》</li>
+                <li>《天空之城》</li>
+                <li>《电音之王》</li>
+                <li>《爱情买卖》</li>
+                <li>《青藏高原》</li>
+                <li>《爸爸妈妈》</li>
+                <li>《同桌的你》</li>
+                <li>《奇迹再现》</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

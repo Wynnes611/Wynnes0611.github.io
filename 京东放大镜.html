@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            vertical-align: bottom;
+        }
+
+        .box {
+            width: 994px;
+            margin-top: 50px;
+            margin-left: 60px;
+            position: relative;
+        }
+
+        .box .small_box {
+            width: 450px;
+            height: 450px;
+            border: 1px solid #eee;
+            position: relative;
+        }
+
+        .box .small_box .mask {
+            width: 300px;
+            height: 300px;
+            background: #fede4f;
+            opacity: 0.5;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: move;
+        }
+
+        .box .big_box {
+            width: 540px;
+            height: 540px;
+            border: 1px solid #eee;
+            overflow: hidden;
+            position: absolute;
+            left: 452px;
+            top: 0;
+            display: none;
+        }
+
+        .box .big_box img {
+            position: absolute;
+        }
+
+        .box .nav {
+            margin-top: 20px;
+        }
+
+        .box .nav ul li {
+            width: 54px;
+            height: 54px;
+            float: left;
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+
+        .box .nav ul li img {
+            border: 2px solid transparent;
+            cursor: pointer;
+            position: absolute;
+        }
+
+        .box .nav ul li img.active {
+            border-color: #df2a1f;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="small_box">
+            <img src="images/1_middle.jpg" alt="">
+            <div class="mask"></div>
+        </div>
+        <div class="big_box">
+            <img src="images/1_big.jpg" alt="">
+        </div>
+        <div class="nav">
+            <ul>
+                <li><img src="images/1_small.jpg" alt=""></li>
+                <li><img src="images/2_small.jpg" alt=""></li>
+                <li><img src="images/3_small.jpg" alt=""></li>
+                <li><img src="images/4_small.jpg" alt=""></li>
+                <li><img src="images/5_small.jpg" alt=""></li>
+                <li><img src="images/6_small.jpg" alt=""></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function $(cssSelector) {
+            var obj = document.querySelectorAll(cssSelector);
+            if (obj.length == 1) {
+                return obj[0];
+            }
+            return obj;
+        }
+        var smallBox = $(".small_box");
+        var smallImg = $(".small_box img");
+        var bigBox = $(".big_box");
+        var bigImg = $(".big_box img");
+        var mask = $(".mask");
+        var box = $(".box");
+        var smallBoxWidth = smallBox.offsetWidth;
+        var smallBoxHeight = smallBox.offsetHeight;
+
+        smallBox.onmouseover = function () {
+            mask.style.display = "block";
+            bigBox.style.display = "block";
+        }
+        smallBox.onmouseout = function () {
+            mask.style.display = "none";
+            bigBox.style.display = "none";
+        }
+
+        smallBox.onmousemove = function (e) {
+            var maskWidth = mask.offsetWidth;
+            var maskHeight = mask.offsetHeight;
+
+            var maskX = e.pageX - box.offsetLeft;
+            var maskY = e.pageY - box.offsetTop;
+
+            // 鼠标位置
+            maskX = maskX - (maskWidth / 2);
+            maskY = maskY - (maskHeight / 2);
+
+            if (maskX < 0) {
+                maskX = 0;
+            } else if (maskX > smallBoxWidth - maskWidth) {
+                maskX = smallBoxWidth - maskWidth - 2; //删去offsetWidth包含了的边框大小
+            }
+            if (maskY < 0) {
+                maskY = 0;
+            } else if (maskY > smallBoxHeight - maskHeight) {
+                maskY = smallBoxHeight - maskHeight - 2; //删去offsetHeight包含了的边框大小
+            }
+            mask.style.left = maskX + "px";
+            mask.style.top = maskY + "px";
+
+            // 大图移动的距离= （小图的mask位置*大图的最大移动距离）/小图的最大移动位置;
+            var bigPicSpaceX = bigImg.offsetWidth - bigBox.offsetWidth - 2;
+            var bigPicSpaceY = bigImg.offsetWidth - bigBox.offsetWidth - 2;
+            var bigPicMoveLocateX = (maskX * bigPicSpaceX) / (smallBoxWidth - maskWidth);
+            var bigPicMoveLocateY = (maskY * bigPicSpaceY) / (smallBoxHeight - maskHeight);
+            bigImg.style.left = -bigPicMoveLocateX + "px";
+            bigImg.style.top = -bigPicMoveLocateY + "px";
+        }
+        var navImgs = $(".nav ul li img");
+        for (var i = 0; i < navImgs.length; i++) {
+            navImgs[i].setAttribute("data-index", i + 1);
+            navImgs[i].onmouseover = function () {
+                for (var j = 0; j < navImgs.length; j++) {
+                    navImgs[j].classList.remove("active");
+                }
+                this.classList.add("active");
+                var currentImgIndex = this.getAttribute("data-index");
+
+                smallImg.src = "images/" + currentImgIndex + "_middle.jpg";
+                bigImg.src = "images/" + currentImgIndex + "_big.jpg";
+            }
+        }
+    </script>
+</body>
+
+</html>

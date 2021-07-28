@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var title ="didi";
+        var options={
+            body:"用于当前页面向用户申请显示通知的权限。这个方法只能被用户行为调用（比如：onclick 事件），并且不能被其他的方式调用。",
+            icon:"images/1_middle.jpg",
+            image:"images/walkingdead.png"
+        }
+        var promise =new Notification(title,options);
+    //     Notification.requestPermission(function (permission) {
+    //   // If the user accepts, let's create a notification
+    //   if (permission === "granted") {
+        // var notification = new Notification("Hi there!");
+    //   }
+    // });
+    </script>
+</body>
+</html>

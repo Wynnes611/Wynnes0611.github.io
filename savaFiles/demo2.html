@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="image/logo-mi2.png" type="image/x-icon">
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: violet;
+        }
+
+        p {
+            width: 100px;
+            height: 100px;
+            background-color: khaki;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p></p>
+    </div>
+
+    <script>
+        function $(cssSelector) {
+            var obj = document.querySelectorAll(cssSelector);
+            if (obj.length == 1) {
+                return obj[0];
+            }
+            return obj;
+        }
+        var div = $("div");
+        var p = $("p");
+        p.onmouseover = function () {
+            div.style.transition = "width 0.5s";
+            div.style.width = "150px";
+            console.log(p.style.transition);
+        }
+        p.onmouseout = function () {
+            // div.style.transition.style.transition = "width 0.5s";
+            div.style.width = "100px";
+            console.log(p.style.transition);
+        }
+    </script>
+</body>
+
+</html>

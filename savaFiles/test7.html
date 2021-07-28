@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .type-list-item{
+            font-size:26px;
+            font-weight:400;
+            width:100px;
+            height:23px;
+            color:rgba(0,0,0,1);
+            text-align: center;
+            position: relative;
+          }
+          .active{
+            color: #E4262D;
+          }
+          .active:after {
+              content: '';
+              position:absolute;
+              bottom:-15px;
+              top: auto;
+              left: 40px;
+              height: 3px;
+              width: 22px;
+              background-color: #E4262D;
+            }
+            
+          
+    </style>
+</head>
+
+<body>
+    <ul class="type-list">
+        <li :class="active===i?'type-list-item active':'type-list-item'" v-for="(item,i) in listData" :key="i"
+         @click="active=i">{{item.title}}</li>
+      </ul>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item_box{
+            width: 700px;
+            height: 700px;
+            display: flex;
+            flex-flow: column wrap-reverse;
+            align-content: flex-start;
+            justify-content: flex-end;
+            border: 5px solid darkblue;
+
+        }
+        .item {
+            width: 100px;
+            height: 100px;
+            background-color: violet;
+        }
+        .item:nth-child(odd){
+            width: 100px;
+            background-color: paleturquoise;
+            flex-flow: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="item_box">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+    </div>
+</body>
+
+</html>

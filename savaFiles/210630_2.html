@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var jsonObj ={
+            "name":"zhangsan",
+            "age":23,
+            "email":"zhangsan@163.com"
+        };
+        console.log(jsonObj);
+        console.log(typeof jsonObj);
+        console.log("");
+
+        var jsonStr = JSON.stringify(jsonObj);
+        console.log(jsonStr);
+        console.log(typeof jsonStr);
+
+        var jsonStr2 = '{"resultcode":"200","reason":"Return Successd!","result":{"province":"广西","city":"玉林","areacode":"0775","zip":"537000","company":"联通","card":""},"error_code":0}';
+        console.log(jsonStr2);
+        console.log(typeof jsonStr2);
+        console.log("");
+
+        var json = JSON.parse(jsonStr);
+        console.log(json);
+        console.log(typeof json);
+    </script>
+</body>
+</html>

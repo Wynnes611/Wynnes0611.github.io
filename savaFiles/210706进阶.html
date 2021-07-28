@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            background: #ffc800;
+        }
+    </style>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <input id="search">
+    <ul id="search-bar"></ul>
+    <p>
+        There are moments in life when you miss someone so much that you just want to pick them from your dreams and hug them for real
+    </p>
+
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>
+        // 思路:
+        // 1. 先把p段落的标签内容以空格分割split成一个数组
+        // 2. 给文本框绑定键盘弹起keyup事件,获取文本框的值,用文本框的值判断数组中数组元素是否含有这个文本框的值 indexOf 判断下标
+        // "There".indexOf("a")  => -1
+        // "are".indexOf("a")     => 0
+        // "monments".indexOf("a") => -1
+
+        // 3. 给#search-bar绑定点击事件,事件委托,我们是要让li触发事件
+        // 4. 利用li的标签内容,去查找p段落里面的文本内容,是否等于这个li的标签
+
+        // 把p段落的标签内容以空格分割split成一个数组
+        var txtArr = $("p").text().split(" ");
+        
+        var timer = null;
+        // 给文本框绑定键盘弹起keyup事件
+        $("#search").keyup(function(){
+            // 清除延时器
+            clearTimeout( timer );
+            // 开启延时器,实现防抖
+            timer = setTimeout(function(){
+                // 获取文本框的值
+                var inputVal = $(this).val();
+
+                if( inputVal == "" ){// 判断当前文本框的内容是否为空
+                    $("#search-bar").empty();// 清空ul的内容
+                    $("p").html( txtArr.join(" ") );// 设置原来的段落内容
+                    return;
+                }
+
+                // 创建一个字符串变量
+                var htmlStr = ``;
+
+                // 遍历数组
+                $.each( txtArr , function(index, item ){
+                    if( item.indexOf(inputVal) != -1 ){
+                        htmlStr += `<li>${item}</li>`;
+                    }
+                });
+                
+                // 设置ul的标签内容
+                $("#search-bar").html( htmlStr );
+            }.bind(this), 200 );
+        });
+
+        // 事件委托
+        $("#search-bar")[0].onclick = function( e ){
+            e = e || window.event;
+            // 得到触发事件的目标对象
+            // console.log( e.target );
+
+            // nodeName节点名称
+            // console.log( e.target.nodeName );
+
+            if( e.target.nodeName == "LI" ){
+                // 获取当前点击li的标签内容
+                var currentLiContent = e.target.innerHTML;
+
+                // 定义了一个空数组
+                var newArr = [];
+                // 遍历txtArr
+                $.each( txtArr, function(index, item ){
+                    if( item == currentLiContent ){// 判断数组元素的值跟当前被点击li的标签内容是否相等
+                        newArr.push( `<span>${item}</span>` );
+                    }else{
+                        newArr.push( item );
+                    }
+                });
+
+                // 把数组拼接成字符串, 设置为p段落的内容
+                $("p").html( newArr.join(" ") );
+            }
+        }
+    </script>
+</body>
+
+</html>

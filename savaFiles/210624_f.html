@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100%;
+
+        }
+
+        p {
+            text-align: center;
+            margin: auto;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            font-size: 50px;
+            color: #fff;
+            height: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <p></p>
+    <script>
+        var hexadecimalNum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+        var str = "#";
+        var timer;
+        var pContent = document.querySelector("p");
+        window.onload = function () {
+            timer = window.setInterval(function () {
+                for (var i = 0; i < 6; i++) {
+                    var num = parseInt(Math.random() * 16);
+                    str += hexadecimalNum[num];
+                }
+                pContent.innerHTML = str;
+                document.body.style.backgroundColor = str;
+                str="#"
+            }, 1000)
+        }
+    </script>
+</body>
+
+</html>

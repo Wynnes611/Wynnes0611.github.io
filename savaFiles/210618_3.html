@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            display: none;
+        }
+
+        p {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="image/swh.gif" alt="上午好">
+    <img src="image/xwh.gif" alt="下午好">
+    <img src="image/wsh.gif" alt="晚上好">
+    <p>上午好，好好敲代码！</p>
+    <p>下午好，好好敲代码！</p>
+    <p>晚上好，好好敲代码！</p>
+</body>
+<script>
+    var dayHours = new Date().getHours();
+    var img1, img2, img3, p1, p2, p3;
+    img1 = document.getElementsByTagName("img")[0];
+    img2 = document.getElementsByTagName("img")[1];
+    img3 = document.getElementsByTagName("img")[2];
+    p1 = document.getElementsByTagName("p")[0];
+    p2 = document.getElementsByTagName("p")[1];
+    p3 = document.getElementsByTagName("p")[2];
+    if (dayHours < 12) {
+        img1.style.display = "block";
+        p1.style.display = "block";
+    } else if (dayHours > 12 && dayHours < 18) {
+        img2.style.display = "block";
+        p2.style.display = "block";
+    } else if (dayHours >= 18) {
+        img3.style.display = "block";
+        p3.style.display = "block";
+    }
+</script>
+
+</html>

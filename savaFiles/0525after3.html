@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        header {
+            background-color: #222222;
+        }
+
+        nav {
+            width: 1250px;
+            height: 50px;
+            margin: 0 18%;
+            line-height: 50px;
+
+        }
+
+        nav ul li {
+            float: left;
+        }
+
+        nav ul li:first-child {
+            font-size: 20px;
+        }
+
+        nav ul li:last-child {
+            float: right;
+
+        }
+
+        nav ul li a {
+            color: #8d9d8d;
+            padding: 0 14px;
+        }
+        nav ul li:nth-child(7) a{
+            color: #8d9d8d;
+            padding: 0 0 0 14px;
+        }
+
+        nav ul li a:hover {
+            color: #fff;
+        }
+
+        .circle {
+            width: 8px;
+            height: 8px;
+            float: right;
+            background-color: red;
+            border-radius: 50%;
+            margin-top: 10px;
+        }
+
+        .clearfix::after {
+            content: "";
+            width: 0;
+            height: 0;
+            clear: both;
+            display: block;
+            visibility: hidden;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="clearfix">
+                <li><a href="#">Bootstrap中文网</a></li>
+                <li><a href="#">Bootstrap3中文文档</a></li>
+                <li><a href="#">Bootstrap4中文文档</a></li>
+                <li><a href="#">Sass 教程</a></li>
+                <li><a href="#">Less 教程</a></li>
+                <li><a href="#">JQuery API</a></li>
+                <li><a href="#">网站实例<div class="circle"></div></a></li>
+                <li><a href="#">关于</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="banner"></div>
+    </main>
+</body>
+
+</html>

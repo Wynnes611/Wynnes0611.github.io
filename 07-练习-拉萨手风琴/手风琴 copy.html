@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            height: 100%;
+        }
+
+        body {
+            background-image: url("images/bg.jpg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            height: 100%;
+            /* min-width: 1920px;
+            min-height: 100%; */
+        }
+
+        .container {
+            width: 4356px;
+            height: 1500px;
+            background-color: #fff;
+            margin: 700px auto;
+            position: relative;
+            /* overflow: hidden; */
+            /* z-index: -999; */
+        }
+
+        /* .content {
+            float: left;
+            height: 1500px; */
+        /* background-image: url(images/1.jpg) no-repeat ;
+            background-position: cover; */
+        /* } */
+
+        .item {
+            float: left;
+            width: 400px;
+            height: 1500px;
+            
+        }
+
+        .pic {
+            float: left;
+            height: 1500px;
+            position: absolute;
+            left: 400px;
+        }
+
+        .pic img {
+            height: 1500px;
+        }
+
+        .pic:nth-child(2) img {
+            height: 1500px;
+            /* display: none; */
+        }
+
+        .pic:nth-child(3) img {
+            height: 1500px;
+            /* display: none; */
+        }
+
+        .pic:nth-child(4) img {
+            height: 1500px;
+            /* display: none; */
+        }
+
+        .item:first-child {
+            background:url("images/1.jpg") left/cover no-repeat;
+            opacity: 0.9;
+        }
+
+        .item:nth-child(2) {
+            background: url("images/2.jpg") left/cover no-repeat;
+             margin-left:2756px;
+            opacity: 0.9;
+        }
+
+        .item:nth-child(3) {
+            background: url("images/3.jpg") left/cover no-repeat;
+            opacity: 0.9;
+        }
+
+        .item:nth-child(4) {
+            background: url("images/4.jpg") left/cover no-repeat;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="pic"><img src="images/2.jpg" alt=""></div>
+        <div class="pic"><img src="images/3.jpg" alt=""></div>
+        <div class="pic"><img src="images/4.jpg" alt=""></div>
+        <div class="pic"><img src="images/1.jpg" alt=""></div>
+    </div>
+
+    <script>
+        // var img = document.querySelector("img");
+        // console.log(img.offsetWidth);
+        $(".container .item").hover(function(){
+            $(".pic").eq($(this).index()).animate({width:"2756px","z-index":333},1000)
+        })
+    </script>
+</body>
+
+</html>

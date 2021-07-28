@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #canvas {
+        border: 1px solid #333;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="300" height="300">
+      您的浏览器还不支持canvas
+    </canvas>
+    <script>
+      //   var canvas = document.querySelector("#canvas");
+      //   var context = canvas.getContext("2d");
+      //   context.strokeStyle = "#F22D0D";
+      //   context.lineWidth = "2";
+      //   var step = 40;
+      //   var timer;
+      //       timer = window.setInterval(function () {
+      //           context.beginPath();
+      //           context.arc(100, 100, 40, 0, (Math.PI / 180) * step);
+      //           step += 5;
+      //           context.stroke();
+      //           if (step > 360) {
+      //               window.clearInterval(timer);
+      //         }
+      //       }, 50);
+
+      //   context.moveTo(0, 0);
+      //   context.lineTo(100, 100);
+      //   context.lineTo(110, 50);
+      //   context.lineTo(120, 80);
+      //   context.stroke();
+      //   context.beginPath();
+      //   context.moveTo(10, 60);
+      //   context.quadraticCurveTo(20, 100, 200, 20);
+      //   context.lineWidth = 2;
+      //   context.strokeStyle = "red";
+      //   context.stroke();
+      
+      //   context.beginPath();
+      //   context.moveTo(20, 20);
+      //   context.bezierCurveTo(20, 100, 200, 100, 200, 20);
+      //   context.lineWidth = 2;
+      //   context.strokeStyle = "pink";
+      //   context.stroke();
+      // context.strokeStyle='violet';
+      // context.strokeRect(5, 5, 25, 15);
+      // context.scale(2,2);
+      // context.strokeStyle='red';
+      // context.rotate(Math.PI / 180 * 20);
+      // context.strokeRect(5, 5, 25, 15);
+      // context.fillStyle='lightgreen';
+      // context.fillRect(5, 5, 25, 15);
+      
+      // context.clearRect(3, 3, 5, 5);
+      
+      var canvas = document.querySelector("#canvas");
+      var context = canvas.getContext("2d");
+      // 五角星
+      context.beginPath();
+      //设置是个顶点的坐标，根据顶点制定路径
+      for (var i = 0; i < 5; i++) {
+              context.lineTo(Math.cos((18+i*72)/180*Math.PI)*200+200,
+                              -Math.sin((18+i*72)/180*Math.PI)*200+200);
+              context.lineTo(Math.cos((54+i*72)/180*Math.PI)*80+200,
+                              -Math.sin((54+i*72)/180*Math.PI)*80+200);
+          }
+          context.closePath();
+          //设置边框样式以及填充颜色
+          context.lineWidth="3";
+          context.fillStyle = "#F6F152";
+          context.strokeStyle = "#F5270B";
+          context.fill();
+          context.stroke();
+          
+      //     context.beginPath();
+      //     context.moveTo(0, 10);
+      //     var x = 40;
+      //     var y = 50;
+      //     var times = 2;
+      //     for (var i = 0; i < 16; i++) {
+      //         if (i == 0) {
+      //             context.lineTo(40, 10);
+      //           } else if (i % 2 == 0) {
+      //               context.lineTo(x, y);
+      //               y += 40;
+      //       context.lineTo(x, y);
+      //   } else if (i % 2 == 1) {
+      //     context.lineTo(x, y);
+      //     x += 40;
+      //     context.lineTo(x, y);
+      //   }
+      // }
+      // context.lineTo(320,300);
+      // context.lineTo(0,300);
+      //   context.closePath();
+      //   context.fillStyle = "#bbb";
+      //   context.fill();
+
+      // context.stroke();
+    </script>
+  </body>
+</html>

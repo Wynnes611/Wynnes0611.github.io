@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>赞</button>
+    <button>赞</button>
+    <button>赞</button>
+    <button>赞</button>
+
+    <script>
+        var btn = document.querySelectorAll("button");
+        var num = 0;
+
+        for (var i = 0; i < btn.length; i++) {
+            (function (i) {
+                btn[i].onclick = function () {
+                    var iHTML = [btn[i].innerHTML.slice(0, 1)];
+                    if((btn[i].innerHTML).length==1){
+                        num = 0;
+                        num++;
+                        iHTML.push(num);
+                        btn[i].innerHTML = iHTML.join("");
+                        console.log("0");
+                    }else{
+                        num++;
+                        iHTML.push(num);
+                        btn[i].innerHTML = iHTML.join("");
+                        console.log("大于0");
+
+                    }
+                }
+            })(i);
+
+        }
+    </script>
+</body>
+
+</html>

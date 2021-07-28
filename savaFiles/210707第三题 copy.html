@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        html {
+            height: 100%;
+            min-width: 1200px;
+        }
+
+        body {
+            min-height: 100%;
+            position: relative;
+        }
+
+        header {
+            width: 100%;
+            height: 50px;
+            background-color: #123555;
+        }
+
+        header nav {
+            width: 1200px;
+            height: 50px;
+            margin: 0 auto;
+            color: #fff;
+            line-height: 50px;
+        }
+
+        footer {
+            width: 100%;
+            height: 100px;
+            background-color: #d1484f;
+            position: absolute;
+            bottom: 0;
+        }
+
+        footer p {
+            line-height: 100px;
+            width: 1200px;
+            color: #fff;
+            margin: 0 auto;
+        }
+
+        .main {
+            width: 100%;
+            padding-bottom: 230px;
+        }
+
+        .main .item {
+            width: 1200px;
+            height: 350px;
+            margin: 40px auto;
+            text-align: center;
+            line-height: 350px;
+            color: #fff;
+        }
+
+        .main .item:first-child {
+            background-color: #dcd0a8;
+        }
+
+        .main .item:nth-child(2) {
+            background-color: #dca297;
+        }
+
+        .main .item:nth-child(3) {
+            background-color: #e69b02;
+        }
+
+        .main .item:nth-child(4) {
+            background-color: #bdac9c;
+        }
+
+        .main .item:nth-child(5) {
+            background-color: #c98a83;
+        }
+
+        .main .item:nth-child(6) {
+            background-color: #e69b02;
+        }
+
+        /* 侧边栏 */
+        .side_bar {
+            top: 0;
+            bottom: 0;
+            right: 0;
+            height: 466px;
+            position: fixed;
+            width: 50px;
+            margin: auto;
+            z-index: 999;
+            /* display: none; */
+        }
+
+        .side_bar .square {
+            background-color: violet;
+            margin: 14px 0 0;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            user-select: none;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .side_bar .square:hover {
+            background-color: #cf1ccf;
+        }
+
+        .current {
+            background-color: #865186 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            这是导航栏
+        </nav>
+    </header>
+    <ul class="side_bar">
+        <li class="square current">1</li>
+        <li class="square">2</li>
+        <li class="square">3</li>
+        <li class="square">4</li>
+        <li class="square">5</li>
+        <li class="square">6</li>
+    </ul>
+    <div class="main">
+        <div class="item">这是1楼</div>
+        <div class="item">这是2楼</div>
+        <div class="item">这是3楼</div>
+        <div class="item">这是4楼</div>
+        <div class="item">这是5楼</div>
+        <div class="item">这是6楼</div>
+    </div>
+    <footer>
+        <p>这是底部</p>
+    </footer>
+
+    <script>
+        var arrItem = [];
+        var currentScrollTop = $(window).scrollTop();
+        $(window).scroll(function () {
+
+            $.each($(".item"), function () {
+                arrItem.push($(this).offset().top);
+            })
+            if (currentScrollTop > arrItem[0]) {
+                $(".side_bar").fadeIn(300);
+            } else {
+                $(".side_bar").fadeOut(300);
+            }
+            var currentLiftIndex = 0;
+            $.each(arrItem, function (index, loc) {
+                if (currentScrollTop > (loc-215)) {
+                    currentLiftIndex = index;
+                }
+
+                $(".square").eq(currentLiftIndex).addClass("current").siblings(".square").removeClass("current");
+            });
+
+        })
+            $(".side_bar .square").click(function () {
+                var currentSquareIndex = $(this).index();
+                $("body,html").animate({
+                    scrollTop: arrItem[currentSquareIndex]
+                });
+            })
+    </script>
+</body>
+
+</html>

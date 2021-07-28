@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //2、编写一个函数，计算任意两个0~9之间数字之间所能组成的所有奇数,并且要求个位数和十位数不相同的奇数;                                             (本题30分)
+        // 注意:  传递实参的时候,  第一个实参需要第二个实参小
+
+        function oddNum(first, second) {
+            for (var i = 0; i <= 9; i++) {
+                if (first > second) {
+                    console.log("第一个数需要比第二个数小");
+                    break;
+                }
+                for (var j = 0; j <= 9; j++) {
+                    if (i == j) {
+                        continue;
+                    } else {
+                        if (first == i && j % 2 == 1 || second == i && j % 2 == 1) {
+                            var num = i + j.toString();
+                            console.log(num);
+                        }
+                    }
+                }
+            }
+        }
+        oddNum(0, 3);
+    </script>
+</body>
+
+</html>

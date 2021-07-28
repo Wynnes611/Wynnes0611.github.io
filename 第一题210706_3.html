@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <input type="text" placeholder="请输入需要添加的选项">
+    <button>添加</button>
+    <p>
+        <button id="All_s">全选</button>
+        <button id="All_Ns">全不选</button>
+        <button id="ab_s">反选</button>
+        <button id="del_s">删除所选</button>
+    </p>
+    <p><label><input type="checkbox" class="CBs">家里没宽带</label></p>
+    <p><label><input type="checkbox" class="CBs">网速不够快</label></p>
+    <p><label><input type="checkbox" class="CBs">手机没流量</label></p>
+    <p><label><input type="checkbox" class="CBs">学校无wifi</label></p>
+
+    <script>
+        
+        // 全选
+        $("button").eq(1).click(function () {
+            $(":checkbox").prop("checked", "checked");
+        })
+        // 全不选
+        $("button").eq(2).click(function () {
+            $(":checkbox").prop("checked", "");
+        })
+        // 反选
+        $("button").eq(3).click(function () {
+            $(":checkbox").each(function (index, domElement) {
+                // if ($(domElement).prop("checked")) {
+                //     $(this).prop("checked", false);
+                // } else {
+                //     $(this).prop("checked", true);
+                // }
+                console.log(this.checked);
+                console.log($(this).checked);
+                this.checked = !this.checked;
+            })
+        })
+        // 删除所选
+        $("button").eq(4).click(function () {
+            $(":checked").parent().remove();
+        })
+        // 添加
+        $("button").eq(0).click(function () {
+            var newP = $("<p></p>");
+            var newLabel = $("<label></label>");
+            var newCheckbox = $("<input type='checkbox' class='CBs'>");
+            newLabel.append(newCheckbox);
+            newLabel.append($("input[type='text']").val());
+            newP.append(newLabel);
+            $("p:last").after(newP);
+            $(":text").val("");
+        })
+    </script>
+</body>
+
+</html>

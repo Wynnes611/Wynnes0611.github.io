@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <pre>
+
+        <font color="gray">&lt;!DOCTYPE html&gt;</font>
+        &lt;html lang="en"&gt;
+        &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;Document&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+      
+        &lt;h2&gt;这样浏览器不能显示body标签，因为大于符号和小于符号是预留字符&lt;/h2&gt;
+        &lt;!-- &lt;body&gt;标签里面存放的是要显示的浏览器上的内容 --&gt;
+        &lt;h2&gt;可以使用字符实体去替换预留字符，就可以在浏览器看到body标签&lt;/h2&gt;
+        &lt;pre&gt;
+
+            1.&lt;表示小于符号
+            2.&gt;表示大于符号
+
+        &lt;/pre&gt;
+
+        &lt;body&gt;标签里面存放的是要显示在浏览器上的内容
+
+        &lt;pre&gt;
+            3.&amp; 连接符的实体字符，在页面中替换成&
+        &lt;/pre&gt;
+        &amp:表示渲染成一个连接符
+
+        &lt;pre&gt;
+            4.&nbsp; 空格符的实体字符，在页面中替换成
+        &lt;/pre&gt;
+        aa                          bb&lt;br&gt;
+        aa&nbsp:  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;     bb&lt;br&gt;
+        &lt;pre&gt;
+            5.copy;  版权符的实体字符，在页面中替换成©
+        &lt;/pre&gt;
+
+        2021-05-18 &copy;GZ2131班级
+
+        &lt;pre&gt;
+            6.&reg;  注册商标的实体字符，在页面中替换成®
+        &lt;/pre&gt;
+        今天的天气不错，温度才30&deg;
+
+        &lt;pre&gt;
+            8.乘号，使用字符实体&times;
+        &lt;/pre&gt;
+
+        &lt;div&gt;1 &times; 1=1; &lt;/div&gt;
+        &lt;div&gt;1 &times; 2=2;&lt;/div&gt;
+        &lt;div&gt;1 &times; 3=3;&lt;/div&gt;
+
+
+        &lt;/body&gt;
+        &lt;/html&gt;
+
+    </pre>
+
+
+</body>
+
+</html>

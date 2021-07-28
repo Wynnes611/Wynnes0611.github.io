@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 30px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            border: 1px solid #ccc;
+            width: 130px;
+            float: left;
+        }
+
+        .out {
+            margin: 0 auto;
+            width: 160px;
+        }
+
+        button {
+            background-color: transparent;
+            border: 1px solid #ccc;
+            padding: 0 5px;
+            text-align: center;
+            top: 0;
+            color: #ef4f2b;
+            font-size: 20px;
+            float: left;
+        }
+
+        p {
+            color: #ef4f2b;
+            text-align: center;
+            margin: 0;
+        }
+
+        img {
+            margin-top: 10px;
+            width: 130px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="out">
+        <button>&times;</button>
+        <div class="content">
+            <p>淘宝二维码</p>
+            <img src="image/tao.png" alt="erweima">
+        </div>
+    </div>
+
+
+    <script>
+        var delBtn = document.querySelector("button");
+        var contentPlay = document.querySelector(".content");
+        delBtn.onclick = function () {
+            contentPlay.style.display = "none";
+            delBtn.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

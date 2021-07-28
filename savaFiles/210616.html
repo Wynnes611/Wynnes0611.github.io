@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // 1、(字符)获取一个长文件路径(比如”E:/class/php/js/day2/abc.html”)中的文件名及其后缀
+        var str = "E:/class/php/js/day2/abc.html";
+        document.write(str.substring(str.lastIndexOf("/") + 1));
+        document.write("<br/>");
+
+        // 2、(字符)将字符串” 49238028424”以”2”为分隔符分割为数组,并求出这个数组的长度
+        var str2 = "492380284242";
+        // str2 = "[" + str2.split("2") + "]";
+        document.write(str2.split("2", 4));
+        document.write("<br/>");
+        document.write("string.length()=" + str2.length);
+        document.write("<br/>");
+
+        // 3、(字符，偏难)利用var s1 = prompt(”请输入任意字符”,””)可以获取用户输入的字符(存到变
+        // 量s1中了)，要求将用户输入的字符“反转顺序”后,再首尾字母转为大写，其他字母转为小写,最后把结果输出在页面上
+        var arr = [],
+            newArray = [];
+        var str3 = prompt("请输入任意字符：");
+        arr = str3.split("");
+        for (var i = arr.length - 1; i >= 0; i--) {
+            if(i==arr.length-1){
+                newArray[newArray.length] = arr[i].toUpperCase();
+
+            }
+            newArray[newArray.length] = arr[i];
+        }
+        document.write(newArray);
+        document.write("<br/>");
+
+        // 4、(Math)求圆周率PI的5次方，并四舍五入取整
+        document.write(Math.round(Math.pow(Math.PI, 5)));
+        document.write("<br/>");
+
+        // 5、(Math，逻辑)写一段程序，要求每次刷新页面，就会在页面中显示6个两位数的随机整数
+        for (var i = 0; i < 6; i++) {
+            document.write(randomNum() + " ");
+        }
+
+        function randomNum() {
+            return Math.floor(Math.random() * (99 - 10 + 1) + 10);
+        }
+
+        function getRandomNum(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+        var red = getRandomNum(0, 255);
+        var green = getRandomNum(0, 255);
+        var blue = getRandomNum(0, 255);
+        var color = "rgb(" + red + "," + green + "," + blue + ")";
+        document.write("<div style='background-color:" + color + "';></div>");
+
+        // 6、用{}方式,创建一个电脑对象,有颜色,有重量,有品牌,有型号,可以看电影,可以听音乐,可以打游戏,可以敲代码
+        var computer = {
+            brand: "华硕",
+            color: "black",
+            weight: "5kg",
+            Version: "k55v",
+            movie: "可以看电影",
+            music: "可以听音乐",
+            play: "可以打游戏",
+            programming: "可以敲代码"
+        }
+        for (var temp in computer) {
+            console.log(computer[temp]);
+        }
+        console.log("");
+
+        //    7、用new Object()方式,创建一个按钮对象,宽,高,背景颜色,可以鼠标点击
+        var obj = new Object();
+        obj.width = "120px";
+        obj.height = "60px";
+        obj.bgColor = "pink";
+        obj.click = function () {
+            console.log("我是按钮，你可以点击我");
+        };
+        obj.click();
+        for (var temp in obj) {
+            if (temp != "click") {
+                console.log(obj[temp]);
+            }
+        };
+
+        // 8、简单的随机点名，刷新页面随机出现一个人的名字 (思路 把所有名字放到一个数组里面， 随机找出来)
+        function randomName(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+        var arr = ["张三", "李四", "王五", "赵六", "孙七", "王八", "李狗蛋", "关羽", "吕布", "安琪拉", "亚瑟", "妲己"];
+        document.write(arr[getRandomNum(0, arr.length - 1)]);
+
+
+
+        // 9、进阶题(选做)  随机生成十六进制颜色   比如 #3a88d8    #73dcb1
+        var hexadecimalNum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e',"f"];
+        var str = "#";
+        for (var i = 0; i < 6; i++) {
+            var num = parseInt(Math.random() * 16);
+            str += hexadecimalNum[num];
+        }
+        document.write("<div style='width:50px;height:50px;background-color:"+str.toUpperCase()+"'></div>");
+    </script>
+</body>
+
+</html>

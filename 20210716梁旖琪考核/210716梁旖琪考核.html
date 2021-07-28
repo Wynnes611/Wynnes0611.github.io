@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/210716考核.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">天气预报</h1>
+      <p class="searchBox clearfix">
+        <input type="text" />
+        <button class="searchBtn">搜索</button>
+      </p>
+      <div class="cityChangeBox clearfix">
+        <span>热门城市：</span>
+        <ul class="cityContent">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <span class="changeBtn"
+          >换一换<i class="bi bi-arrow-counterclockwise"></i
+        ></span>
+      </div>
+      <div class="cityLisContainer">
+        <ul class="cityList"></ul>
+      </div>
+    </div>
+
+    <script>
+        var cityNameData = [
+          "广州",
+          "北京",
+          "上海",
+          "深圳",
+          "苏州",
+          "淮安",
+          "大连",
+          "重庆",
+          "禹州",
+          "成都",
+          "哈尔滨",
+          "拉萨",
+          "桂林",
+          "南宁",
+          "柳州",
+          "石家庄",
+          "唐山",
+          "邯郸",
+          "秦皇岛",
+          "保定",
+          "张家口",
+          "承德",
+          "廊坊",
+          "沧州"
+        ];
+
+        $("input").val(cityNameData[0]);
+        $(".searchBox .searchBtn").click(function () {
+          var cityName = $("input").val();
+          getWeatherByCity(cityName);
+        });
+
+        var save = 0;
+        changeLis();
+        $(".changeBtn").click(function () {
+          changeLis();
+        });
+        function changeLis() {
+          for (var i = 0; i <= 7; i++) {
+            $(".cityContent>li")
+              .eq(i)
+              .text(cityNameData[i + save]);
+          }
+          if (save < cityNameData.length) {
+            save += 8;
+          } else {
+            save = 0;
+          }
+        }
+
+        $(".cityContent>li").on("click", function () {
+          getWeatherByCity($(this).text());
+          $("input").val($(this).text())
+        });
+
+        function getWeatherByCity(cityName) {
+          $.ajax({
+            type: "get",
+            url: "http://api.tianapi.com/txapi/tianqi/index",
+            data: {
+              key: "a985a2c8ac56198c958199d6b595c7ef",
+              city: cityName,
+            },
+            success: function (res) {
+              var data = res.newslist;
+              renderData(data);
+            },
+          });
+        }
+        function renderData(data) {
+          var htmlStr = ``;
+          for (var i = 0; i < data.length; i++) {
+            var item = data[i];
+            htmlStr += `
+              <li>
+              <img src="images/${item.weatherimg}" alt="" height="60px"/>
+              <p>${item.weather}</p>
+              <p>最低温${item.lowest}~最高温${item.highest}</p>
+              <p>${item.date}${item.week}</p>
+              <p>${item.wind}</p>
+              <p>${item.windsc}</p>
+              </li>
+              `;
+            $(".cityLisContainer .cityList ").html(htmlStr);
+          }
+        }
+        getWeatherByCity("广州");
+    </script>
+  </body>
+</html>

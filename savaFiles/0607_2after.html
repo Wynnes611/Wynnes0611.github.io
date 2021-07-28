@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            margin: 30px auto;
+            border-collapse: collapse;
+            border: 2px solid #9ab7cd;
+            text-align: center;
+        }
+        table tr td{
+            border: 2px solid #9ab7cd;
+        }
+        h2{
+            margin: 0;
+        }
+        h3,ul{
+            margin: 20px auto;
+            width: 250px;
+        }
+    </style>
+    <script>
+        document.write("<table>");
+        document.write("<tr><th colspan='4'><h2>羊村村长-慢羊羊-个人简历</h2></th></tr>");
+        document.write("<tr><td>姓名：</td><td>慢羊羊</td><td>性别：</td><td>男</td></tr>");
+        document.write("<tr><td>年龄：</td><td>54岁</td><td>学历</td><td>博士后</td></tr>");
+        document.write("<tr><td>毕业时间：</td><td>1988年</td><td>毕业学校：</td><td>清华大学</td></tr>");
+        document.write("<tr><td>工作时间：</td><td>1988年-7月-30日</td><td>工作职责：</td><td>羊性情温顺，古人的祭祀与日常生活都跟羊有密切关系，常被视为吉祥的象征</td></tr>");
+        document.write("</table>");
+
+
+        document.write("<table>");
+        document.write("<tr><th colspan='4'><h2>羊村村长-慢羊羊-个人简历</h2></th></tr>");
+        document.write("<tr><td>姓名：</td><td>慢羊羊</td><td>性别：</td><td>男</td></tr>");
+        document.write("<tr><td>年龄：</td><td>"+54+"岁</td><td>学历</td><td>博士后</td></tr>");
+        document.write("<tr><td>毕业时间：</td><td>1988年</td><td>毕业学校：</td><td>清华大学</td></tr>");
+        document.write("<tr><td>工作时间：</td><td>"+1988+"年-"+7+"月-"+30+"日</td><td>工作职责：</td><td>羊性情温顺，古人的祭祀与日常生活都跟羊有密切关系，常被视为吉祥的象征</td></tr>");
+        document.write("</table>");
+
+
+        var userName,gender,age,eduBackground,graduationDate,schoolOfGraduate,workTime,duty;
+        userName = "慢羊羊";
+        gender="男";
+        age=54;
+        eduBackground = "博士后";
+        schoolOfGraduate = "清华大学";
+        workTime = "1988年-7月-30日";
+        graduateTime = "1988年";
+        duty = "羊性情温顺，古人的祭祀与日常生活都跟羊有密切关系，常被视为吉祥的象征";
+        document.write("<table>");
+        document.write("<tr><th colspan='4'><h2>羊村村长-"+userName+"-个人简历</h2></th></tr>");
+        document.write("<tr><td>姓名：</td><td>"+userName+"</td><td>性别：</td><td>"+gender+"</td></tr>");
+        document.write("<tr><td>年龄：</td><td>"+age+"岁</td><td>学历</td><td>"+eduBackground+"</td></tr>");
+        document.write("<tr><td>毕业时间：</td><td>"+graduateTime+"</td><td>毕业学校：</td><td>"+schoolOfGraduate+"</td></tr>");
+        document.write("<tr><td>工作时间：</td><td>"+workTime+"</td><td>工作职责：</td><td>"+duty+"</td></tr>");
+        document.write("</table>");
+
+        document.write("<h3>卡卡罗特同学的个人信息</h3>");
+        document.write("<ul>");
+        document.write("<li>姓名："+"卡卡罗特"+"</li>");
+        document.write("<li>性别："+"男"+"</li>");
+        document.write("<li>年龄："+18+"</li>");
+        document.write("<li>体重："+90+"kg"+"</li>");
+        document.write("</ul>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

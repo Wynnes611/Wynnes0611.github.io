@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea {
+            border: 1px solid pink;
+            outline: none;
+            resize: none;
+            font-size: 16px;
+            margin-left: 30px;
+            padding: 10px;
+        }
+
+        ul li {
+            background-color: violet;
+            padding: 5px;
+            width: 400px;
+            color: darkblue;
+            margin: 15px;
+        }
+
+        li a {
+            float: right;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="textarea1" id="" cols="25" rows="7"></textarea>
+    <button>发布</button>
+
+    <ul>
+        <li>默认文本<a href="#">删除</a></li>
+    </ul>
+
+    <script>
+        var ul = document.querySelector("ul");
+        var releaseBtn = document.querySelector("button");
+        var i = 1;
+        releaseBtn.onclick = function () {
+            var text = document.querySelector("textarea").value;
+            var newLi = document.createElement("li");
+            var newA = document.createElement("a");
+            newLi.innerHTML = text;
+            newA.innerText = "删除";
+            newA.setAttribute("data-index", i++);
+            newA.style.cursor = "pointer";
+            newLi.append(newA);
+            ul.append(newLi);
+
+            var delBtn = document.querySelectorAll("a");
+            console.log(delBtn);
+            for (var i = 0; i < delBtn.length; i++) {
+                delBtn[i].onclick = function () {
+                    var li = document.querySelectorAll("li");
+                    console.log(this);
+                    this.parentNode.remove();
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

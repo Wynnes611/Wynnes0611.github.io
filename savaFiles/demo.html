@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  </style>
+</head>
+
+<body>
+  <script>
+    // var arr1 = ['a','b','c','e'];
+    // var arr2 = ['d','e','f','f'];
+    // var arr3 = arr1.concat(arr2);
+    // var newArr=[];
+    // for(var i=0;i<arr3.length;i++){
+    //   if(newArr.indexOf(arr3[i])==-1){
+    //     newArr[newArr.length] = arr3[i];
+    //   }
+    // }
+    // console.log(newArr)
+
+    var obj = {};
+    var str = '11122fdf';
+   for(var i =0;i<str.length;i++){
+      if(obj[str.charAt(i)]){
+        obj[str.charAt(i)]++;
+      }else{
+        obj[str.charAt(i)]=1;
+      }
+   }
+   var maxTimes = 1;
+   var maxChar = "";
+   for(var attr in obj){
+     if(obj[attr]>maxTimes){
+       maxTimes =  obj[attr];
+       maxChar = attr;
+     }
+   }
+   console.log(maxTimes);
+   console.log(maxChar);
+    // console.log(maxChar);
+    // console.log(maxCount);
+    // var obj = {};
+    // var str = '11122fdf';
+    // for(var i=0;i<str.length;i++){
+    //   obj[str.charAt(i)]++;
+    //   console.log(obj[str.charAt(i)]++);
+    // }
+  </script>
+</body>
+
+</html>

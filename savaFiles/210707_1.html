@@ -1,0 +1,44 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js//jquery.color.js"></script>
+    <style>
+        body{
+            height: 5000px;
+            background-color: lightseagreen;
+        }
+        button{
+            width: 80px;
+            height: 30px;
+            border-radius: 5px;
+            border: none;
+            position: fixed;
+            top: 50px;
+            left: 50px;
+        }
+        li{
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>内容</li>
+        <li>内容</li>
+        <li>内容</li>
+        <li>内容</li>
+        <li>内容</li>
+    </ul>
+    <script>
+        $("ul").on("click","li",function(){
+            $(this).animate({"fontSize":"20px"}).siblings("li").animate({"fontSize":"16px"});
+            $(this).animate({"backgroundColor":"pink"}).fadeTo(20,1).siblings("li").animate({"backgroundColor":"transparent"}).fadeTo(200,0.5);
+        })
+    </script>
+</body>
+</html>

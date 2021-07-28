@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器</title>
+    <style>
+        p {
+            color: goldenrod;
+        }
+
+        span {
+            color: green;
+        }
+
+        strong {
+            color: hotpink;
+        }
+        
+        .a1 , .a1>span{
+            color: rgb(255, 0, 0);
+            background-color: khaki;
+        }
+        p:first-letter{
+            color: #f99;
+            font-size: 30px;
+        }
+        .ancestry>p+span{
+            background-color: orchid;
+        }
+       p+span{
+            background-color: rgb(0, 47, 216);
+        }
+        .a2>span strong:nth-last-child(3)~strong{
+            background-color: cadetblue;
+        }
+        .ancestry span:nth-child(2){
+            font-size: 55px;
+            color: darkblue;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="ancestry">
+        <p>hello world</p>
+        <span>hello world</span>
+        <span>hello world</span>
+        <strong>hello world</strong>
+        <strong>hello world</strong>
+        <div class="a1">
+            hello world
+            <span>
+                hello world
+                <p>hello world</p>
+            </span>
+        </div>
+        <div class="a2">
+            hello world
+            <p>
+                hello world
+            </p>
+            <span>
+                <strong>hello world</strong>
+                <strong>hello world</strong>
+                <strong>hello world</strong>
+                <strong>hello world</strong>
+                <strong>hello world</strong>
+            </span>
+        </div>
+        <div class="a3">
+            hello world
+            <span>hello world</span>
+        </div>
+        <div class="a4">
+            hello world
+            <strong>
+                hello world
+                <p>
+                    hello world
+                    <span>hello world</span>
+                </p>
+            </strong></div>
+    </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>

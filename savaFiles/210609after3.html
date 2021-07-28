@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        for (var i = 1; i <= 100; i++) {
+            if (i % 3 == 0 && i % 7 == 0) {
+                document.write(" [ ");
+                document.write("三七");
+                document.write(" ] ");
+                continue;
+            } else if (i % 7 == 0) {
+                document.write(" [ ");
+                document.write("七");
+                document.write(" ] ");
+                continue;
+            } else if (i % 3 == 0) {
+                document.write(" [ ");
+                document.write("三");
+                document.write(" ] ");
+                continue;
+            }
+            document.write(" [ ");
+            document.write(i);
+            document.write(" ] ");
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="#bottom">获取location相关属性</a>
+    <button>使用js,模拟a链接跳转功能</button>
+
+    <button>location.assign</button>
+    <button>location.replace</button>
+    <button>location.reload</button>
+    <script>
+        var objA = document.querySelector("a");
+        objA.onclick = function(){
+            console.log("location.href =>",location.href);
+            console.log("location.protocol =>",location.protocol);
+
+            console.log("location.host =>",location.host);
+            console.log("location.port =>",location.port);
+            console.log("location.pathname=>",location.pathname);
+            console.log("location.search =>",location.search);
+            console.log("location.hash=>",location.hash);
+            console.log("");
+        }
+
+        var btns = document.querySelectorAll("button");
+        btns[0].onclick = function(){
+            location.href ="https://www.baidu.com";
+        }
+        btns[1].onclick = function(){
+            location.assign("http://www.taobao.com");
+        }
+        btns[2].onclick = function(){
+            location.replace("http://www.jd.com");
+        }
+        btns[3].onclick = function(){
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>

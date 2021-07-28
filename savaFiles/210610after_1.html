@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            margin: 20px;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid #9ab7cd;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // 第一题
+        var str = "";
+        var arr = [22, 8, 12, 7, 45, 9, 31, 100, 30, 18];
+        for (var i = arr.length - 1; i >= 1; i--) {
+            for (var j = 0; j < i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+
+        document.write("最大值：" + arr[arr.length - 1]);
+        document.write("<br/>");
+        document.write("最小值：" + arr[0]);
+        document.write("<br/>");
+
+        // 第三题
+        document.write("<br/>");
+        document.write("3、");
+        var str2 = "";
+        var arr = [
+            [1, '小红帽', '女', 21, '喜欢唱歌'],
+            [1, '喜洋洋', '男', 23, '喜欢看电视'],
+            [1, '薛之谦', '男', 24, '喜欢看小说'],
+            [1, '王一博', '女', 21, '喜欢玩游戏'],
+            [1, '毛不易', '女', 22, '喜欢看综艺'],
+            [1, '程序员', '男', 21, '喜欢敲代码'],
+            [1, '懒洋洋', '女', 22, '喜欢追剧'],
+            [1, '邓紫棋', '女', 20, '喜欢编程课'],
+            [1, '我我我', '女', 20, '喜欢自由'],
+            [1, '你你你', '男', 20, '喜欢运动']
+        ];
+        str2 += "<table>";
+        for (var i = 0; i < arr.length; i++) {
+            str2 += "<tr>";
+            for (var j = 0; j < arr[i].length; j++) {
+                str2 += "<td>" + arr[i][j] + "</td>";
+            }
+            str += "</tr>";
+        }
+        str2 += "</table>";
+        document.write(str2);
+        // for(var i=0;i<arr.length;i++){
+        //     str+=arr[i]+",";
+        // }
+        // str.delete(str.lastIndexOf(","),str.length);
+        // document.write(str);
+        // 练习1
+        var arr2 = [2, 6, 1, 77, 52, 25, 7];
+        var max = arr2[0];
+        for (var i = 1; i < arr2.length; i++) {
+            if (arr2[i] > max) {
+                max = arr2[i];
+            }
+        }
+        document.write("练习1：<br/>最大值：" + max);
+        document.write("<br/>");
+        document.write("<br/>");
+
+
+        // 练习2
+        var arr3 = [2, 6, 1, 7, 4];
+        var sum = 0;
+        for (var i = 0; i < arr3.length; i++) {
+            sum += arr3[i];
+        }
+        document.write("练习2：" + sum);
+        document.write("<br/>");
+        document.write("<br/>");
+
+        // 练习3
+        var arr4 = ["red", "green", "blue", "pink"];
+        var str4 = "";
+        for (var i = 0; i < arr4.length; i++) {
+            str4 += arr4[i];
+        }
+        document.write("练习3：" + str4);
+        document.write("<br/>");
+        document.write("<br/>");
+
+        // 练习4(1)
+        var arr5 = [
+            [11, 8, 35],
+            [7, 51, 99]
+        ];
+        document.write("练习4(1)：");
+        for (var i = 0; i < arr5.length; i++) {
+            for (var j = 0; j < arr5[i].length; j++) {
+                document.write(arr5[i][j] + "  ");
+            }
+        }
+        document.write("<br/>");
+        document.write("<br/>");
+
+        // 练习4(2)
+        var arr6 = [
+            [11, 8, 35],
+            [7, 51, 99]
+        ];
+        var sum2 = 0;
+        for (var i = 0; i < arr6.length; i++) {
+            for (var j = 0; j < arr6[i].length; j++) {
+                sum2 += arr6[i][j];
+            }
+        }
+        document.write("练习4(2)：" + sum2);
+        document.write("<br/>");
+        document.write("<br/>");
+
+        // 练习4(3)
+        var arr7 = [
+            [11, 8, 35],
+            [7, 51, 99]
+        ];
+        var sum_odd = 0;
+        document.write("练习4(3)：<br/>奇数：");
+        for (var i = 0; i < arr7.length; i++) {
+            for (var j = 0; j < arr7[i].length; j++) {
+                if (arr7[i][j] % 2 == 1) {
+                    sum_odd += arr7[i][j];
+                    document.write(arr7[i][j] + "  ");
+                }
+            }
+        }
+        document.write("<br/>");
+        document.write("奇数和：" + sum_odd);
+
+        document.write("<br/>");
+        document.write("<br/>");
+
+        // 第二题
+        var arr8 = [22, 8, 12, 15, 45, 5, 35];
+        document.write("2、");
+        // 奇数
+        document.write("奇数元素：");
+        // 初始化变量
+        var sav = 0,
+            avg = 0,
+            num = 0; //总数暂存，平均数，奇数数量
+        for (var i = 0; i < arr8.length; i++) {
+            if (arr8[i] % 2 == 0) {
+                document.write(arr8[i] + " ");
+                sav += arr8[i];
+                num++;
+            }
+        }
+        avg = sav / num;
+        document.write("奇数平均数：" + avg);
+        document.write("<br/>");
+
+        // 偶数
+        document.write("偶数元素：");
+        // 初始化变量
+        sav = 0, avg = 0, num = 0; //总数暂存，平均数，偶数数量
+        for (var i = 0; i < arr8.length; i++) {
+            if (arr8[i] % 2 == 1) {
+                document.write(arr8[i] + " ");
+                sav += arr8[i];
+                num++;
+            }
+        }
+        avg = sav / num;
+        document.write("偶数平均数：" + avg);
+    </script>
+</body>
+
+</html>

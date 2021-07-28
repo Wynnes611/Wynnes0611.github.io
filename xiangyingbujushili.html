@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,
+        h2 {
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+
+        #main,
+        header,
+        aside,
+        footer {
+            background: #333;
+            margin: 5px 0;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 3em;
+        }
+
+        #container {
+            width: 960px;
+            margin: 0 auto;
+        }
+
+        header {
+            float: left;
+            width: 100%;
+            line-height: 100px;
+        }
+
+        #left {
+            float: left;
+            width: 200px;
+            line-height: 400px;
+        }
+
+        #main {
+            float: left;
+            width: 540px;
+            line-height: 400px;
+            margin-left: 10px;
+        }
+
+        #right {
+            float: left;
+            width: 100%;
+            line-height: 400px;
+        }
+
+        footer {
+            float: left;
+            width: 100%;
+            line-height: 80px;
+        }
+
+        @media screen and (min-width:1024px) {
+            h2 {
+                text-align: center;
+                font-size: 3.5rem;
+                color: yellow;
+            }
+
+            #container {
+                width: 960px;
+                margin: 0 auto;
+            }
+
+            header {
+                float: left;
+                width: 100%;
+            }
+
+            #left {
+                float: left;
+                width: 200px;
+            }
+
+            #main {
+                float: left;
+                margin-left: 10px;
+                width: 540px;
+            }
+
+            #right {
+                width: 200px;
+                float: right;
+            }
+
+            footer {
+                float: left;
+                width: 100%;
+            }
+        }
+
+        @media screen and (min-width:640px) and (max-width:1024px) {
+            h2 {
+                text-align: center;
+                font-size: 2.5rem;
+                color: #f0f;
+            }
+
+            #container {
+                width: 600px;
+                margin: 0 auto;
+            }
+
+            #left {
+                float: left;
+                width: 160px;
+            }
+
+            #main {
+                float: left;
+                margin-left: 10px;
+                width: 430px;
+            }
+
+            #right {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width:639px) {
+            h2 {
+                text-align: center;
+                font-size: 3.5rem;
+                color: #0f0;
+            }
+
+            #container {
+                width: 400px;
+                margin: 0 auto;
+            }
+
+            #left {
+                float: left;
+                width: 100%;
+                line-height: 100px;
+            }
+
+            #main {
+                float: left;
+                margin-left: 0;
+                width: 100%;
+                line-height: 200px;
+            }
+
+            #right {
+                width: 100%;
+                float: left;
+                line-height: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <header>
+            <h2>header</h2>
+        </header>
+        <aside id="left">
+            <h2>left</h2>
+        </aside>
+        <section id="main">
+            <h2>main</h2>
+        </section>
+        <aside id="right">
+            <h2>right</h2>
+        </aside>
+        <footer>
+            <h2>footer</h2>
+        </footer>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+<table border="1" rules="all" width="400" align="center">
+    <thead>
+        <tr bgcolor="#ccc" height="40">
+            <th>姓名</th>
+            <th>科目</th>
+            <th>成绩</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+    <script>
+        var datas = [{
+            name: '小龙女',
+            subject: 'JavaScript',
+            score: 100
+        }, {
+            name: '杨过',
+            subject: 'HTMl',
+            score: 98
+        }, {
+            name: '陆无双',
+            subject: 'CSS',
+            score: 99
+        }, {
+            name: '郭靖',
+            subject: 'Java',
+            score: 88
+        }, {
+            name: '黄蓉',
+            subject: 'PHP',
+            score: 70
+        }];
+
+        var htmlStr =``;
+        for(var i=0;i<datas.length;i++){
+            htmlStr +=`
+                <tr align="center">
+                <td>${datas[i].name}</td>
+                <td>${datas[i].subject}</td>
+                <td>${datas[i].score}</td>
+                <td><a href="javascript:">删除</a></td>
+                </tr>`
+        }
+        console.log(htmlStr);
+        var tbody =document.querySelector("tbody");
+        tbody.innerHTML = htmlStr;
+
+        var objAs = document.querySelectorAll("tbody tr td a");
+        for(var j= 0;j<objAs.length;j++){
+            objAs[i].onclick = function(){
+                this.parentNode.parentNode.remove();
+            }
+        }
+    </script>
+</body>
+
+</html>

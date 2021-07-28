@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-spacing: 5px;
+            width: 360px;
+            height: 200px;
+
+        }
+
+        table tr td:not(.This) {
+            text-align: center;
+            /* background-color: red; */
+        }
+
+        /* .This{
+            background-color:#34b587 ;
+        }
+        .Little{
+            background-color: #33d480;
+        }
+        .Piggy{
+            background-color: #33d4bf;
+        }
+        .Went{
+            background-color: #33d4ff;
+        }
+        .To{
+            background-color: #00d4ff;
+        }
+        .Market{
+            background-color: #00aaff;
+        } */
+        td:nth-child(1) {
+            background-color: #34b587;
+        }
+
+        td:nth-child(2) {
+            background-color: #33d480;
+        }
+
+        td:nth-child(3) {
+            background-color: #33d4bf;
+        }
+
+        td:nth-child(4) {
+            background-color: #33d4ff;
+        }
+
+        td:nth-child(5) {
+            background-color: #00d4ff;
+        }
+
+        td:nth-child(6) {
+            background-color: #00aaff;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <td class="This" title="34b587色">This</td>
+                <td class="Little">Little</td>
+                <td class="Piggy">Piggy</td>
+                <td class="Went">Went</td>
+                <td class="To">To</td>
+                <td class="Market">Market</td>
+            </tr>
+            <tr>
+                <td class="This" colspan="2">This</td>
+                <td class="Little">Little</td>
+                <td class="Piggy">Piggy</td>
+                <td class="Went">Went</td>
+                <td class="To">To</td>
+            </tr>
+            <tr>
+                <td class="This" colspan="4">This</td>
+                <td rowspan="3" class="Little">Little</td>
+                <td class="Piggy">Piggy</td>
+            </tr>
+            <tr>
+                <td class="This" rowspan="2">This</td>
+                <td class="Little">Little</td>
+                <td class="Piggy">Piggy</td>
+                <td class="Went">Went</td>
+                <td class="To">To</td>
+            </tr>
+            <tr>
+                <td class="Little">Little</td>
+                <td class="Piggy">Piggy</td>
+                <td class="Went">Went</td>
+                <td class="To">To</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

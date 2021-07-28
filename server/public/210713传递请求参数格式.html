@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>传递参数格式一，传统表单传值，get请求</button>
+    <button>传递请求参数格式二，传统表单传值，post请求</button>
+    <button>传递请求参数格二，传递一个json格式的字符串</button>
+
+    <script>
+        var btns = document.querySelectorAll("button");
+        btns[0].onclick = function(){
+            var xhr = new XMLHttpRequest();
+            xhr.open("get","http://localhost:3000/get01?name=zhangsan&age=20&sex=男");
+            xhr.send();
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4&&xhr.status == 200){
+                    console.log(`JSON.parse(xhr.responseText)`, JSON.parse(xhr.responseText));
+                }
+            }
+        }
+    </script>
+</body>
+</html>

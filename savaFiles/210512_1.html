@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            min-height: 100%;
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-top: 6px solid #e8e8e8;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            display: inline-block;
+            margin-left: 5px;
+        }
+
+        .headerbox {
+            width: 1200px;
+            height: 50px;
+            line-height: 50px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #cc6699;
+            width: 100%;
+            position: fixed;
+
+        }
+
+        header .headerbox .left {
+            font-size: 18px;
+            padding-left: 15px;
+            float: left;
+        }
+
+        header .headerbox .left span {
+            color: #e8e8e8;
+
+        }
+
+        header .headerbox .right {
+            float: right;
+        }
+
+        header .headerbox .right span {
+            font-size: 14px;
+            padding-right: 10px;
+            color: #e8e8e8;
+        }
+
+        header .headerbox .right span:last-child {
+            padding-right: 0px;
+        }
+
+        header .headerbox .right span:hover {
+            color: #fff;
+            cursor: pointer;
+        }
+
+        header .headerbox .right .language:hover .triangle{
+            border-bottom: 6px solid #fff;
+            border-top: 0px;
+        }
+
+        /* 内容 */
+        main .bgimg {
+            padding-top: 70px;
+            height: 570px;
+            text-align: center;
+            background-color: #cc6699;
+        }
+
+        .bgimg h3 {
+            color: #fff;
+            font-size: 24px;
+            margin: 40px 0;
+        }
+
+        .bgimg a {
+            color: #edbbbd;
+            background-color: transparent;
+            box-shadow: 0 0 0 2px #edbbbd inset;
+            border-radius: 2px;
+            padding: 13px 19px;
+        }
+
+        .bgimg a:hover {
+            color: #fff;
+            box-shadow: 0 0 0 2px #fff inset;
+        }
+
+        .txt {
+            width: 1200px;
+            margin: 50px auto;
+            padding: 0 15px;
+        }
+
+        .txt .txtbox {
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 0 10px;
+            width: 390px;
+            height: 123.2px;
+        }
+
+        .txt .txtbox .title {
+            font-size: 30px;
+        }
+
+        .content {
+            font-size: 18px;
+            height: 20px;
+            margin-top: 10px;
+        }
+
+        .co_partner {
+            text-align: center;
+            margin: 20px 0 10px;
+        }
+
+        .co_partner p {
+            font-size: 26px;
+            color: #333;
+        }
+
+        .co_partner p:last-child {
+            color: #818181;
+            font-size: 12px;
+        }
+
+        .partner {
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .partner img {
+            padding: 10px;
+
+        }
+
+        .partner img:hover {
+            transform: translateY(-6px);
+            transition: transform 1s ease 0s;
+            box-shadow: 2px 5px 13px #ccc;
+        }
+
+        .advertisement {
+            text-align: center;
+        }
+        .info{
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: #aaa;
+            
+        }
+        .info a{
+            color: #aaa;
+        }
+        .info a:hover{
+            color: #ee6699;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="headerbox">
+            <div class="left">
+                <span>Sass中文网</span>
+            </div>
+            <div class="right">
+                <span>首页</span>
+                <span>安装</span>
+                <span>快速入门</span>
+                <span>中文文档</span>
+                <span>常见问题</span>
+                <span>使用技巧</span>
+                <span>Sass在线转换</span>
+                <span>关于</span>
+                <span class="language">Language<span class="triangle"></span></span>
+
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="bgimg">
+            <img src="image/sass.png" alt="logo">
+            <h3>世界上最成熟、最稳定、最强大的专业级CSS扩展语言！</h3>
+            <a href="#">安装Sass</a>
+        </div>
+        <div class="txt">
+            <div class="txtbox">
+                <p class="title">兼容CSS</p>
+                <p class="content">Sass完全兼容所有版本的CSS。我们对此严格把控，所以你可以无缝地使用任何可用的CSS库。</p>
+            </div>
+            <div class="txtbox">
+                <p class="title">特性丰富</p>
+                <p class="content">Sass拥有比其他任何CSS扩展语言更多的功能和特性。Sass核心团队不懈努力，一直使其保持领先地位。</p>
+            </div>
+            <div class="txtbox">
+                <p class="title">成熟</p>
+                <p class="content">Sass已经经过其核心团队超过13年的精心打造。<br><br></p>
+            </div>
+            <div class="txtbox">
+                <p class="title">行业认可</p>
+                <p class="content">一次又一次地，行业把Sass作为首选CSS扩展语言。</p>
+            </div>
+            <div class="txtbox">
+                <p class="title">社区庞大</p>
+                <p class="content">数家科技企业和成百上千名开发者为Sass提供支持。</p>
+            </div>
+            <div class="txtbox">
+                <p class="title">框架</p>
+                <p class="content">有无数的框架使用Sass构建。比如Compass，Bourbon，和Susy。</p>
+            </div>
+        </div>
+        <div class="co_partner">
+            <p>合作伙伴</p>
+            <p>COOPERATIVE PARTNER</p>
+        </div>
+        <div class="partner">
+            <img src="image/sass1.png" alt="">
+            <img src="image/sass2.png" alt="">
+            <img src="image/sass3.png" alt="">
+            <img src="image/sass4.png" alt="">
+        </div>
+        <div class="advertisement">
+            <img src="image/paypai.png" alt="paypai" width="1200px">
+        </div>
+        <div class="info">
+            <a href="#">Sass中文网（Sass中国）©2017</a>-
+            <a href="#"> 友情链接</a>-
+            <a href="#"> 文章/教程征集 </a>-
+            <span>闽ICP备13012724号</span>
+        </div>
+    </main>
+</body>
+
+</html>

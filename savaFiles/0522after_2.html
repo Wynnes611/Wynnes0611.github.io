@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            list-style: none;
+            /* padding: 0; */
+        }
+        ul>li::before{
+            content: "回看";
+            font-size: 13px;
+            color: #fff;
+            display: inline-block;
+            text-align: center;
+            width: 52px;
+            height: 21px;
+            padding-top: 3px;
+            background-color: #1d62af;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+        ul li.live ~ li::before{
+            background-color: #ccc;
+        }
+        ul li.live::before{
+            content: "直播中";
+            background-color: #f00;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li>天气预报</li>
+        <li>焦点访谈</li>
+        <li>东方时空</li>
+        <li class="broadcast">新闻联播</li>
+        <li class="live">新闻1+1</li>
+        <li>国际时讯</li>
+        <li>环球视线</li>
+        <li>24小时</li>
+    </ul>
+</body>
+</html>

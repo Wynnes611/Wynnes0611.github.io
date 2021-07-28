@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            position: fixed;
+        }
+        body{
+            height: 2000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <button>缓慢动画回到0</button>
+        <button>直接去到500</button>
+        <button>缓慢动画去到1000</button>
+    </div>
+
+    <script>
+        function getScroll() {
+            return {
+                left: window.pageXOffset || document.body.scrollLeft || document.documentElement.scrollLeft,
+                top: window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop
+            }
+        }
+        function $(cssSelector){
+            var obj = document.querySelectorAll(cssSelector);
+            if(obj.length == 0){
+                return obj[0];
+            }
+            return obj;
+        }
+        var timer = null;
+
+        function animate_scroll(target) {
+            if (timer === null) {
+                timer = window.setInterval(function () {
+                    var currentScrollTop = getScroll().top;
+                    if (currentScrollTop == target) {
+                        window.clearInterval(timer);
+                        timer = null;
+                    }
+                    var speed = (target - currentScrollTop) / 10;
+                    speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                    window.scroll(0,currentScrollTop+speed);
+                },15);
+            }
+        }
+
+        var btn = $("button");
+        btn[0].onclick = function(){
+            animate_scroll(0);
+        }
+        btn[1].onclick = function(){
+            animate_scroll(500);
+        }
+        btn[2].onclick = function(){
+            animate_scroll(1000);
+        }
+    </script>
+</body>
+
+</html>

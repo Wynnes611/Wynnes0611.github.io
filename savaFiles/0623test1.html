@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <textarea name="t_area1" id="" cols="30" rows="10" class="content"></textarea>
+        <button>发布</button>
+        <ul></ul>
+    </div>
+
+    <script>
+        var btn = document.querySelector("button");
+        var content = document.querySelector(".content");
+        var ul = document.querySelector("ul");
+
+        btn.onclick = function () {
+            var contentVal = content.value;
+            if (contentVal == "") {
+                alert("请输入内容以后再添加");
+                return;
+            }
+
+            var newLi = document.createElement("li");
+            newLi.innerHTML = contentVal;
+
+            var newA = document.createElement("a");
+            newA.innerHTML = "删除";
+            newA.href = "javascript:";
+            newA.onclick = function () {
+                this.parentNode.remove();
+            }
+            newLi.appendChild(newA);
+            ul.appendChild(newLi);
+            content.value = "";//清空文本框内容
+
+            var objAs = document.querySelectorAll("a");
+            for(var i = 0;i<objAs.length;i++){
+                objAs[i].onclick = function(){
+                    this.parentNode.remove();
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

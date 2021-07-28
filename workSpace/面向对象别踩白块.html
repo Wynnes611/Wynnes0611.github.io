@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            border: 1px solid slateblue;
+            width: 400px;
+            height: 400px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .box .game {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            top: -100px;
+        }
+
+        .box .game .row div {
+            width: 98px;
+            height: 98px;
+            float: left;
+            border: 1px solid #777;
+        }
+
+        input {
+            margin: 50px auto 20px;
+            display: block;
+            text-align: center;
+        }
+        .black {
+            background-color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text">
+    <div class="box">
+        <div class="game">
+            <div class="row">
+                <div class="black"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div class="black"></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div></div>
+                <div class="black"></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="black"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function Game() {
+            this.$ = function (cssSelector) {
+                var obj = document.querySelectorAll(cssSelector);
+                if (obj.length == 1) {
+                    return obj[0];
+                }
+                return obj;
+            }
+            this.randomNum = function (min, max) {
+                return Math.floor(Math.random() * (max - min + 1) + min);
+            }
+            this.game = this.$(".game");
+            this.inputValue = this.$("input");
+            this.isOver = false;
+            this.timer = null;
+            this.speed = 1;
+            this.calculate = 0;
+            this.init();
+
+        }
+
+
+
+
+
+        Game.prototype.moveDown = function () {
+            var that = this;
+            this.timer = window.setInterval(function () {
+                that.game.style.top = that.game.offsetTop + that.speed + "px";
+                if (that.game.offsetTop >= 0) {
+                    that.createRow();
+                    that.removeRow();
+                    that.isTouchBottom();
+                }
+            }, 20);
+        }
+
+        Game.prototype.createRow = function () {
+            var newRow = document.createElement("div");
+            newRow.classList.add("row");
+            var randomBlack = this.randomNum(1, 4);
+            for (var i = 1; i <= 4; i++) {
+                var newDiv = document.createElement("div");
+                if (randomBlack == i) {
+                    newDiv.classList.add("black");
+                }
+                newRow.appendChild(newDiv);
+            }
+            this.game.insertBefore(newRow, this.game.firstElementChild);
+            this.game.style.top = -100 + "px";
+        }
+
+        Game.prototype.removeRow = function () {
+            if (this.game.children.length > 5) {
+                this.game.lastElementChild.remove();
+            }
+
+        }
+
+        Game.prototype.handleClick = function () {
+            var that = this;
+            this.game.onclick = function (e) {
+                e = e || window.event;
+                if (that.isOver) {
+                    alert("游戏已经结束，刷新重新开始");
+                    window.clearInterval(that.timer);
+                } else {
+                    if (e.target.classList.contains("black")) {
+                        e.target.classList.remove("black");
+                        e.target.parentNode.setAttribute("data-num", true);
+                        that.calculate++;
+                        that.inputValue.value = that.calculate;
+                        if (that.calculate % 5 == 0) {
+                            that.speed++;
+                        }
+                    } else {
+                        alert("游戏结束");
+                        window.clearInterval(that.timer);
+                        that.isOver = true;
+                    }
+                }
+            }
+        }
+        Game.prototype.isTouchBottom = function () {
+            if (this.game.lastElementChild.getAttribute("data-num") === null) {
+                alert("游戏结束");
+                window.clearInterval(this.timer);
+                this.isOver = true;
+            }
+        }
+        Game.prototype.init = function () {
+            this.moveDown();
+            this.handleClick();
+        }
+        new Game();
+    </script>
+</body>
+
+</html>

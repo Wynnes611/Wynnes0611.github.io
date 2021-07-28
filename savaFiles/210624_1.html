@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var datas = [{
+            name: "小龙女",
+            subject: 'JavaScript',
+            score: 100
+        }, {
+            name: "杨过",
+            subject: 'HTML',
+            score: 98
+        }, {
+            name: "陆无双",
+            subject: "CSS",
+            score: 99
+        }, {
+            name: "郭靖",
+            subject: 'Java',
+            score: 88
+        }, {
+            name: '黄蓉',
+            subject: 'PHP',
+            score: 20
+        }];
+        var newTable = document.createElement("table");
+        newTable.border = 1;
+        newTable.rules = "all";
+        newTable.width = 400;
+        newTable.cellPadding = 2;
+        newTable.align = "center";
+
+        var firstTr = document.createElement("tr");
+        var newTh1 = document.createElement("th");
+        newTh1.innerHTML = "姓名";
+        firstTr.appendChild(newTh1);
+        var newTh2 = document.createElement("th");
+        newTh2.innerHTML = "科目";
+        firstTr.appendChild(newTh2);
+        var newTh3 = document.createElement("th");
+        newTh3.innerHTML = "成绩";
+        firstTr.appendChild(newTh3);
+        var newTh4 = document.createElement("th");
+        newTh4.innerHTML = "操作";
+        firstTr.appendChild(newTh4);
+        newTable.appendChild(firstTr);
+
+        for(var i = 0;i<datas.length;i++){
+            var newTr = document.createElement("tr");
+            newTr.align = "center";
+
+            for(var attr in datas[i]){
+                var newTd = document.createElement("td");
+                newTd.innerHTML = datas[i][attr];
+                newTr.appendChild(newTd);
+            }
+
+            var lastTd = document.createElement("td");
+            var delA = document.createElement("a");
+            delA.href="javascript:";
+            delA.innerHTML = "删除";
+            lastTd.appendChild(delA);
+            newTr.appendChild(lastTd);
+            newTable.appendChild(newTr);
+        }
+        document.body.appendChild(newTable);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-variant: small-caps;
+            text-align: center;
+            color: #fff;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            min-height: 100%;
+            position: relative;
+        }
+
+        header {
+            height: 60px;
+            width: 100%;
+            background-color: darkcyan;
+        }
+
+        main {
+            margin: 0 auto;
+            padding-bottom: 100px;
+           
+            width: 1200px; 
+
+        }
+        .banner{
+            background-color: lightgreen;
+            height: 220px;
+        }
+        .small {
+            width: calc((1200px - 10px*3)/4);
+            background-color: violet;
+            height: 130px;
+            
+            float: left;
+        }
+        .small:nth-child(-n+3){
+            margin-right: 10px;
+        }
+        .center_long{
+            margin-top: 20px;
+           
+        }
+        .long{
+            width: calc((100% - 10px*3)/4);
+            height: 400px;
+            background-color: gold;
+            float: left;
+            margin-bottom: 50px;
+        }
+        .long:nth-child(-n+3){
+            margin-right: 10px;
+        }
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+            width: 0;
+            height: 0;
+            visibility: hidden;
+        }
+        .clearfix{
+            *zoom:1;
+        }
+        footer {
+            height: 100px;
+            width: 100%;
+            line-height: 100px;
+            background-color: darkblue;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>top</header>
+    <main>
+        <div class="banner">banner</div>
+        <div class="center_small clearfix">
+            <div class="small"></div>
+            <div class="small"></div>
+            <div class="small"></div>
+            <div class="small"></div>
+        </div>
+        <div class="center_long clearfix">
+            <div class="long"></div>
+            <div class="long"></div>
+            <div class="long"></div>
+            <div class="long"></div>
+        </div>
+    </main>
+    <footer>
+        footer
+    </footer>
+</body>
+
+</html>

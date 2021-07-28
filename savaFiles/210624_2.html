@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>开启定时器</button>
+    <button>关闭定时器</button>
+    <script>
+        var btns = document.querySelectorAll("button");
+        var num = 0;
+        var timer = null;
+        btns[0].onclick = function() {
+            if (timer === null) {
+                timer=window.setInterval(function(){
+                    num++;
+                    console.log("num变量的值为：" + num);
+                }, 1000);
+                console.log("timer的值为：" + timer);
+            }
+        }
+        btns[1].onclick = function () {
+            window.clearInterval(timer);
+            timer = null;
+        }
+    </script>
+</body>
+
+</html>

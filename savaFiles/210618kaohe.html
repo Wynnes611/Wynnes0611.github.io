@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1、编写函数,任意个数字实参的和、差、积           (本题15分)
+        function calculate() {
+            var tempAdd = 0;
+            var tempSub = arguments[0];
+            var tempMul = 1;
+            for (var i = 0; i < arguments.length; i++) {
+                tempAdd += arguments[i];
+                tempMul *= arguments[i];
+            }
+            for (var i = 1; i < arguments.length; i++) {
+                tempSub -= arguments[i];
+            }
+            console.log("加：" + tempAdd);
+            console.log("减：" + tempSub);
+            console.log("乘：" + tempMul);
+        }
+        calculate(2, 3, 4, 5);
+    </script>
+</body>
+
+</html>

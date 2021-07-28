@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url("images/bg.jpg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            /* min-width: 1920px;
+            min-height: 100%; */
+        }
+
+        .container {
+            width: 4000px;
+            height: 1500px;
+            background-color: #fff;
+            margin: 700px auto;
+            overflow: hidden;
+            z-index: -999;
+        }
+
+        .content {
+            float: left;
+            height: 1500px;
+            position: relative;
+            /* background-image: url(images/1.jpg) no-repeat ;
+            background-position: cover; */
+        }
+        .content .item {
+            float: left;
+            width: 400px;
+            height: 1500px;
+        }
+        .content .pic {
+            float: left;
+            height: 1500px;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .content .pic img{
+            height: 1500px;
+        }
+        .content:nth-child(2) .pic img{
+            height: 1500px;
+            display: none;
+        }
+        .content:nth-child(3) .pic img{
+            height: 1500px;
+            display: none;
+        }
+        .content:nth-child(4) .pic img{
+            height: 1500px;
+            display: none;
+        }
+
+        .content:first-child .item {
+            background: url("images/1.jpg") left/cover no-repeat;
+            opacity: 0.8;
+        }
+
+        .content:nth-child(2) .item {
+            background: url("images/2.jpg") left/cover no-repeat;
+            opacity: 0.8;
+        }
+
+        .content:nth-child(3) .item {
+            background: url("images/3.jpg") left/cover no-repeat;
+            opacity: 0.8;
+        }
+
+        .content:nth-child(4) .item {
+            background: url("images/4.jpg") left/cover no-repeat;
+            opacity: 0.8;
+        }
+
+        .container .content {
+            height: 1500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="item"></div>
+            <div class="pic"><img src="images/1.jpg" alt=""></div>
+        </div>
+        <div class="content">
+            <div class="item"></div>
+            <div class="pic"><img src="images/2.jpg" alt=""></div>
+        </div>
+        <div class="content">
+            <div class="item"></div>
+            <div class="pic"><img src="images/3.jpg" alt=""></div>
+        </div>
+        <div class="content">
+            <div class="item"></div>
+            <div class="pic"><img src="images/4.jpg" alt=""></div>
+        </div>
+    </div>
+</body>
+
+</html>

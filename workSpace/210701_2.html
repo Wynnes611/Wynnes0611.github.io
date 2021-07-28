@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 创建日期对象,需要new实例化得到
+        var date = new Date();
+        console.log( date );
+        // 再通过日期对象调用其方法
+        console.log( date.getFullYear() );
+        console.log("");
+
+        // 但是我们Math就不需要实例化,直接使用就可以了
+        // 因为Math的属性和方法都是静态成员,静态成员是通过构造函数名直接调用的
+        console.log( Math.random() );
+        console.log( Math.PI );
+        console.log("");
+
+        function Star( uname, age, sex ){
+            this.uname = uname;
+            this.age = age;
+            this.sex = sex;
+            this.sayHello = function(){
+                console.log("hello hello hello");
+            }
+        }
+
+        Star.prototype.sayHi = function(){
+            console.log("hi~hi~hi~");
+        }
+
+        // 添加静态属性
+        Star.COUNTRY = "China";
+
+        // 添加静态方法
+        Star.eating = function(){
+            // 在静态方法里面this是代表当前的构造函数
+            // console.log( this );
+            console.log("吃饭饭");
+        }
+
+
+        // JavaScript 的构造函数中可以添加一些成员，可以在构造函数本身上添加，也可以在构造函数内部的 this 上添加。通过这两种方式添加的成员，就分别称为静态成员和实例成员。
+        
+        // 这里的成员指的是就是属性和方法
+
+        // 实例成员：在"构造函数内部创建"的成员称为实例成员，"只能由实例化的对象来访问"
+
+        var ldh = new Star("刘德华" , 57, "男" );
+        console.log( ldh.uname );
+        console.log( ldh.age );
+        console.log( ldh.sex );
+        ldh.sayHello();
+        ldh.sayHi();
+        console.log("");
+
+
+        // 静态成员：在"构造函数本身身上"添加的成员称为静态成员，只能由"构造函数本身来访问"
+        console.log( Star.COUNTRY );
+        Star.eating();
+    </script>
+</body>
+</html>

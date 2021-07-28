@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut" href="favicon.ico" type="image/x-icon">
+    <style>
+        .content{
+            margin: 30px;
+        }
+        .bubble_box {
+            width: 180px;
+            height: 40px;
+            background-color: khaki;
+            position: relative;
+            border-radius: 5px;
+            margin: 24px 0;
+            display: none;
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-top: 10px solid khaki;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            position: absolute;
+            bottom: -10px;
+            left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="bubble_box">
+            <div class="triangle"></div>
+        </div>
+        <input type="text">
+    </div>
+    <script>
+        var appearBubble = document.querySelector(".bubble_box");
+        var inputN = document.querySelector("input");
+        inputN.onfocus = function(){
+            appearBubble.style.display = "block";
+        }
+        inputN.onblur = function(){
+            appearBubble.style.display = "none";
+        }
+        inputN.onkeydown = function(){
+            appearBubble.innerHTML = this.value;
+            appearBubble.style.fontSize = "20px";
+
+        }
+    </script>
+</body>
+
+</html>

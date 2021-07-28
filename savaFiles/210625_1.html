@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .grandfather{
+            width: 500px;
+            height: 500px;
+            background: orange;
+            margin-left: 20px;
+            margin-top: 30px;
+
+        }
+        .granfather .father{
+            width: 300px;
+            height: 300px;
+            background-color: skyblue;
+            margin-left: 35px;
+            margin-top: 50px;
+            position: relative;
+        }
+        .grandfather .father .son{
+            width: 100px;
+            height: 50px;
+            border: 5px solid red;
+            background: pink;
+            position: absolute;
+            left: 25px;
+            top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grandfather">
+        <div class="father">
+            <div class="son"></div>
+        </div>
+    </div>
+
+    <script>
+        var son = document.querySelector(".son");
+        console.log("offsetParent=>",son.offsetParent);
+    </script>
+    
+</body>
+
+</html>

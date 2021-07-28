@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        html {
+            height: 100%;
+            min-width: 1200px;
+        }
+
+        body {
+            min-height: 100%;
+            position: relative;
+        }
+
+        header {
+            width: 100%;
+            height: 50px;
+            background-color: #123555;
+        }
+
+        header nav {
+            width: 1200px;
+            height: 50px;
+            margin: 0 auto;
+            color: #fff;
+            line-height: 50px;
+        }
+
+        footer {
+            width: 100%;
+            height: 100px;
+            background-color: #d1484f;
+            position: absolute;
+            bottom: 0;
+        }
+
+        footer p {
+            line-height: 100px;
+            width: 1200px;
+            color: #fff;
+            margin: 0 auto;
+        }
+
+        .main {
+            width: 100%;
+            padding-bottom: 230px;
+        }
+
+        .main .item {
+            width: 1200px;
+            height: 350px;
+            margin: 40px auto;
+            text-align: center;
+            line-height: 350px;
+            color: #fff;
+        }
+
+        .main .item:first-child {
+            background-color: #dcd0a8;
+        }
+
+        .main .item:nth-child(2) {
+            background-color: #dca297;
+        }
+
+        .main .item:nth-child(3) {
+            background-color: #e69b02;
+        }
+
+        .main .item:nth-child(4) {
+            background-color: #bdac9c;
+        }
+
+        .main .item:nth-child(5) {
+            background-color: #c98a83;
+        }
+
+        .main .item:nth-child(6) {
+            background-color: #e69b02;
+        }
+
+        /* 侧边栏 */
+        .side_bar {
+            top: 0;
+            bottom: 0;
+            right: 0;
+            height: 466px;
+            position: fixed;
+            width: 66px;
+            margin: auto;
+            z-index: 999;
+            display: none;
+        }
+
+        .side_bar .square {
+            background-color: violet;
+            margin: 14px 0 0;
+            height: 66px;
+            line-height: 66px;
+            text-align: center;
+            user-select: none;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .side_bar .square:hover {
+            background-color: #cf1ccf;
+        }
+
+        .current {
+            background-color: #865186 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            这是导航栏
+        </nav>
+    </header>
+    <ul class="side_bar">
+        <li class="square current">1</li>
+        <li class="square">2</li>
+        <li class="square">3</li>
+        <li class="square">4</li>
+        <li class="square">5</li>
+        <li class="square">6</li>
+    </ul>
+    <div class="main">
+        <div class="item">这是1楼</div>
+        <div class="item">这是2楼</div>
+        <div class="item">这是3楼</div>
+        <div class="item">这是4楼</div>
+        <div class="item">这是5楼</div>
+        <div class="item">这是6楼</div>
+    </div>
+    <footer>
+        <p>这是底部</p>
+    </footer>
+
+    <script>
+        $(window).scroll(function () {
+
+            $(".main .item").each(function (index, Element) {
+                var itemTop = $(Element).offset().top;
+                var scrollTop = $(window).scrollTop();
+                var halfContentHeight = $(Element).height() / 2;
+                if (scrollTop > 100) {
+                    $(".side_bar").stop().fadeIn(300);
+                } else {
+                    $(".side_bar").stop().fadeOut(300);
+                }
+                if (itemTop - 40 - halfContentHeight - 50 < scrollTop) {
+                    $(".square").eq(index).addClass("current").siblings(".square").removeClass(
+                        "current");
+                }
+                $(".square").eq(index).click(function () {
+                    var itemTopIndex = $(Element).offset().top;
+                    var space = itemTopIndex - halfContentHeight - 50;
+                    $("body,html").stop().animate({
+                        scrollTop: space
+                    }, 450);
+                    // 当前元素距离文档顶部距离-margin上-元素高度的一半-margin下-导航栏高度
+                    if (index == $(".square").length - 1) {
+                        var pageHeight = $("footer").offset().top;
+                        $("body,html").stop().animate({
+                            scrollTop: pageHeight
+                        }, 550);
+                    }
+                })
+            })
+
+        })
+    </script>
+</body>
+
+</html>

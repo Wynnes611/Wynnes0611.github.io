@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj1 ={
+            username:"zhangsan",
+            age:23,
+            sex:"男"
+        };
+
+        var obj2 = {};
+        for(var attr in obj1){
+            obj2[attr] = obj1[attr];
+        }
+        
+        obj1.username = "aliee";
+        obj2.age = 60;
+        console.log(obj1);
+        console.log(obj2);
+        var obj3 ={
+            username:"lisi",
+            age:28,
+            sex:"男"
+        };
+
+        var obj4 = {};
+        Object.assign(obj4,obj3);
+        obj4.username = "jessica";
+        obj4.age = 10;
+        obj4.sex = "女";
+        console.log(obj3);
+        console.log(obj4);
+
+        
+
+        // 数组解除引用
+        var arr3 = [10,50,30,4,56];
+        var arr4 = [];
+        for(var attr in arr3){
+            arr4[attr] = arr3[attr];
+        }
+        console.log(arr4);
+        console.log(arr3);
+
+        var arr5 = ['aaa','bbb','ccc','ddd','eee'];
+        var arr6 = arr5.slice(0);
+        console.log(arr6);
+        console.log(arr5);
+
+        var arr6 = ["红","绿","蓝"];
+        var arr7 = arr6.concat();
+        console.log(arr7);
+        console.log(arr6);
+    </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>发送get请求，不带参数</button>
+    <button>发送post请求，不带参数</button>
+    <br>
+    <br>
+    <button>发送get请求，带传统表单格式参数</button>
+    <button>发送post请求，带传统表单格式参数</button>
+    <br>
+    <br>
+    <button>发送post请求，带json字符串格式的参数</button>
+
+    <script>
+
+        function ajax(options){
+            var defaults ={
+                type:"get",
+                url:"",
+                data:{},
+                header:{
+                    "Content-Type":"application/x-www-form-urlencoded"
+                },
+                success:function(){
+
+                },
+                error:function(obj){
+                    console.log(obj);
+                }
+            }
+
+            Object.assign(defaults,options);
+            options = defaults;
+            var xhr = new XMLHttpRequest();
+            var params ="";
+            for(var attr in option.data){
+                params = params+"&"+attr+"="+option.data[attr];
+            }
+            params = params.substr(1);
+            if(options.type =="get"){
+                if(params.length == 0){
+                    xhr.open(options.type,options.url);
+                }else{
+                    if(options.url.indexOf("?")==-1){
+                        xhr.open(options.type,options.url+"?"+params);
+                    }else{
+                        xhr.open(option.type,options.url+"&"+params);
+                    }
+                }
+                xhr.send();
+            }else if(option.type =="post"){
+                xhr.open(options.type,options.url);
+                var ContentType = options.header["Content-Type"];
+                if(ContentType == "application/x-www-form-urlencoded"){
+                    xhr.setRequestHeader("Content-type",ContentType);
+                    xhr.send(params);
+                }else if(ContentType == "application/json"){
+                    xhr.setRequestHeader("Content-type",ContentType)
+                    xhr.send(JSON.stringify(xhr.responseText));
+                }
+            }
+
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState ==4 ){
+                    if(xhr.status ==200){
+                        var reg =/^\{(.+:.+,*)\}$/;
+                        if(reg.test(xhr.responseText)){
+                            options.success(JSON.parse(xhr.responseText));
+                        }else{
+                            options.success(xhr.responseText);
+                        }
+                    }else{
+                        options.error(xhr);
+                    }
+                }
+            }
+        }
+
+        var btns = document.querySelectorAll("button");
+        btns[0].onclick = function(){
+            ajax({
+                url:"http://localhost:3000/getAjax01",
+                success:function(res){
+                    console.log(res);
+                }
+            });
+        }
+
+        btns[1].onclick = function(){
+            ajax({
+                type:"post",
+                url:"http://localhost:3000/postAjax01",
+                success:function(res){
+                    console.log(res);
+                }
+            });
+        }
+
+        btns[2].onclick = function(){
+            ajax({
+                url:"http://localhost:3000/getAjax02",
+                data:{
+                    "username":"zhangsan",
+                    "age":23,
+                    "sex":"男",
+                    "height":"185cm",
+                    "width":"120kg"
+                },
+                success:function(res){
+                    console.log(res);
+                }
+            });
+        }
+
+        btns[3].onclick = function(){
+            ajax({
+                type:"post",
+                url:"http:localhost3000/postAjax02",
+                data:{
+                    "username":"李思思",
+                    "age":24,
+                    "sex":"女",
+                    "height":"158cm",
+                    "weight":"60kg"
+                },
+                success:function(res){
+                    console.log(res);
+                }
+            });
+        }
+
+        btns[4].onclick = function(){
+            ajax({
+                type:"post",
+                url:"http://localhost:3000/postAjax03",
+                data:{
+                    "username":"二狗子",
+                    "age":25,
+                    "sex":"男",
+                    "height":"175cm",
+                    "weight":"175kg"
+                },
+                header:{
+                    "Content-Type":"application/json"
+                },
+                success:function(res){
+                    console.log(res);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
