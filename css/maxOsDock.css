@@ -31,7 +31,7 @@ body{
     padding: 0 .5rem;
     cursor: default;
     position: relative;
-    top: calc((6rem * var(--scale)-6rem)/2*-1);
+    top: calc((6rem * var(--scale) - 6rem)/2 * -1);
     transition: all .2s  ease-in-out;
     -webkit-transition: all .2s  ease-in-out;
     -moz-transition: all .2s  ease-in-out;
