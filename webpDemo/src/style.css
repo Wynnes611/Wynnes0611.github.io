@@ -1,0 +1,11 @@
+body {
+  background-color: lightgoldenrodyellow;
+}
+body div {
+  width: 100px;
+  height: 100px;
+  border: 5px solid rebeccapurple;
+  background-image: url('Coldplay.jpg');
+  background-repeat: no-repeat;
+}
+/*# sourceMappingURL=./style.css.map */
